@@ -61,7 +61,7 @@ int main(int argc, char *argv[]){
 	// Now, the image generation runs in the background. We can do arbitrary
 	// things here in parallel.
 	printf("Press <CTRL-C> to exit and reset LEDs\n");
-	while (!interrupt_received && snek_pointer->running()) {
+	while (!interrupt_received && snooker_pointer->running()) {
 		sleep(1); // Time doesn't really matter. The syscall will be interrupted.
 	}
 	
