@@ -3,7 +3,7 @@
 #include "threaded-canvas-manipulator.h"
 #include "pixel-mapper.h"
 #include "graphics.h"
-#include "Snek.h"
+#include "SnookerGame.h"
 
 #include <signal.h>
 #include <unistd.h>
