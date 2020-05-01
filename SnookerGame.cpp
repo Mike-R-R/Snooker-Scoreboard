@@ -125,7 +125,7 @@ void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
 		case 4:
 			DrawLine(canvas(), x, y, x, y+3, rgb_matrix::Color(r, g, b));
 			DrawLine(canvas(), x, y+3, x+3, y+3, rgb_matrix::Color(r, g, b));
-			DrawLine(canvas(), x+3, y, x, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y, x+3, y+6, rgb_matrix::Color(r, g, b));
 			break;
 		case 5:
 			DrawLine(canvas(), x, y, x+3, y, rgb_matrix::Color(r, g, b));
