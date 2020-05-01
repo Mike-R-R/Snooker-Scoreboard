@@ -15,13 +15,28 @@ void SnookerGame::Run(){
 	cbreak();
 	noecho();
 	keypad(stdscr, TRUE);
-	nodelay(stdscr, TRUE); 
+	nodelay(stdscr, TRUE);
+	
+	setup_scoreboard();
 	
 	while(game_running){
 		if(check_for_input(&key)) {
-		// Handle input of keys we care about
+			// Handle input of keys we care about
 			switch(int(key)){
-				case 0:
+				case 49:
+					break;
+				case 50:
+					break;
+				case 51:
+					break;
+				case 52:
+					break;
+				case 53:
+					break;
+				case 54:
+					break;
+				case 55:
+					break;
 				default:
 					std::cout << key << std::endl;
 					std::cout << int(key) << "\n" << std::endl;
@@ -37,6 +52,24 @@ void SnookerGame::stop_game(){
 
 bool SnookerGame::running(){
 	return game_running;
+}
+
+void SnookerGame::setup_scoreboard(){
+	canvas->SetPixel( 13, 1, 255, 0, 0);
+	canvas->SetPixel( 14, 1, 255, 0, 0);
+	canvas->SetPixel( 15, 1, 255, 0, 0);
+	canvas->SetPixel( 16, 1, 255, 0, 0);
+	canvas->SetPixel( 13, 2, 255, 0, 0);
+	canvas->SetPixel( 17, 2, 255, 0, 0);
+	canvas->SetPixel( 13, 3, 255, 0, 0);
+	canvas->SetPixel( 17, 3, 255, 0, 0);
+	canvas->SetPixel( 13, 4, 255, 0, 0);
+	canvas->SetPixel( 14, 4, 255, 0, 0);
+	canvas->SetPixel( 15, 4, 255, 0, 0);
+	canvas->SetPixel( 16, 4, 255, 0, 0);
+	canvas->SetPixel( 13, 5, 255, 0, 0);
+	canvas->SetPixel( 13, 6, 255, 0, 0);
+	canvas->SetPixel( 13, 7, 255, 0, 0);
 }
 
 /***
