@@ -55,21 +55,21 @@ bool SnookerGame::running(){
 }
 
 void SnookerGame::setup_scoreboard(){
-	canvas->SetPixel( 13, 1, 255, 0, 0);
-	canvas->SetPixel( 14, 1, 255, 0, 0);
-	canvas->SetPixel( 15, 1, 255, 0, 0);
-	canvas->SetPixel( 16, 1, 255, 0, 0);
-	canvas->SetPixel( 13, 2, 255, 0, 0);
-	canvas->SetPixel( 17, 2, 255, 0, 0);
-	canvas->SetPixel( 13, 3, 255, 0, 0);
-	canvas->SetPixel( 17, 3, 255, 0, 0);
-	canvas->SetPixel( 13, 4, 255, 0, 0);
-	canvas->SetPixel( 14, 4, 255, 0, 0);
-	canvas->SetPixel( 15, 4, 255, 0, 0);
-	canvas->SetPixel( 16, 4, 255, 0, 0);
-	canvas->SetPixel( 13, 5, 255, 0, 0);
-	canvas->SetPixel( 13, 6, 255, 0, 0);
-	canvas->SetPixel( 13, 7, 255, 0, 0);
+	canvas()->SetPixel( 13, 1, 255, 0, 0);
+	canvas()->SetPixel( 14, 1, 255, 0, 0);
+	canvas()->SetPixel( 15, 1, 255, 0, 0);
+	canvas()->SetPixel( 16, 1, 255, 0, 0);
+	canvas()->SetPixel( 13, 2, 255, 0, 0);
+	canvas()->SetPixel( 17, 2, 255, 0, 0);
+	canvas()->SetPixel( 13, 3, 255, 0, 0);
+	canvas()->SetPixel( 17, 3, 255, 0, 0);
+	canvas()->SetPixel( 13, 4, 255, 0, 0);
+	canvas()->SetPixel( 14, 4, 255, 0, 0);
+	canvas()->SetPixel( 15, 4, 255, 0, 0);
+	canvas()->SetPixel( 16, 4, 255, 0, 0);
+	canvas()->SetPixel( 13, 5, 255, 0, 0);
+	canvas()->SetPixel( 13, 6, 255, 0, 0);
+	canvas()->SetPixel( 13, 7, 255, 0, 0);
 }
 
 /***
