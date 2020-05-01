@@ -87,7 +87,10 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 15, 15, 255, 0, 0);
 	canvas()->SetPixel( 16, 15, 255, 0, 0);
 	
-	draw_number(0, 9, 1, 255, 255, 255);
+	draw_number(0, 1, 1, 255, 255, 255);
+	draw_number(0, 27, 1, 255, 255, 255);
+	draw_number(0, 1, 9, 255, 255, 255);
+	draw_number(0, 27, 9, 255, 255, 255);
 	
 	draw_number(7, 26, 23, 255, 255, 255); 
 	draw_number(4, 21, 23, 255, 255, 255); 
