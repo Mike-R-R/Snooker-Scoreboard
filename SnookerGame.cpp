@@ -21,8 +21,11 @@ void SnookerGame::Run(){
 		if(check_for_input(&key)) {
 		// Handle input of keys we care about
 			switch(int(key)){
-				std::cout << key << std::endl;
-				std::cout << int(key) << "\n" << std::endl;
+				case 0:
+				default:
+					std::cout << key << std::endl;
+					std::cout << int(key) << "\n" << std::endl;
+					break;
 			}
 		}	
 	}
