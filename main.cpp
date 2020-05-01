@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
 	// the matrix continuously.
 	rgb_matrix::ThreadedCanvasManipulator* image_gen = NULL;
 
-	image_gen = new Snek(canvas);
+	image_gen = new SnookerGame(canvas);
 	
 	// Set up an interrupt handler to be able to stop animations while they go
 	// on. Note, each demo tests for while (running() && !interrupt_received) {},

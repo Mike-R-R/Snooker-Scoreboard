@@ -1,5 +1,5 @@
 CXXFLAGS=-Wall -O3 -g -Wextra -Wno-unused-parameter
-OBJECTS=main.o Snek_Segment.o Snek.o
+OBJECTS=main.o SnookerGame.o
 BINARIES=main
 
 # RGB Library resolution and flags
@@ -15,7 +15,7 @@ all: $(BINARIES)
 $(RGB_LIBRARY): FORCE
 	$(MAKE) -C $(RGB_LIBDIR)
 
-main: main.o Snek.o Snek_Segment.o $(RGB_LIBRARY)
+main: main.o SnookerGame.o $(RGB_LIBRARY)
 	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
 
 %.o: %.cpp
