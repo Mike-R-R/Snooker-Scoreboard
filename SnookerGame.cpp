@@ -94,7 +94,7 @@ void SnookerGame::setup_scoreboard(){
 	
 	draw_number(7, 26, 23, 255, 255, 255); 
 	draw_number(4, 21, 23, 255, 255, 255); 
-	draw_number(1, 16, 23, 255, 255, 255); 
+	draw_number(1, 18, 23, 255, 255, 255); 
 }
 
 void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
