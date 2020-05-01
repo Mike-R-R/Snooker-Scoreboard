@@ -87,7 +87,11 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 15, 15, 255, 0, 0);
 	canvas()->SetPixel( 16, 15, 255, 0, 0);
 	
-	draw_number(0, 9, 2, 255, 255, 255);
+	draw_number(0, 9, 1, 255, 255, 255);
+	
+	draw_number(7, 26, 23, 255, 255, 255); 
+	draw_number(4, 21, 23, 255, 255, 255); 
+	draw_number(1, 16, 23, 255, 255, 255); 
 }
 
 void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
@@ -99,22 +103,61 @@ void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
 			DrawLine(canvas(), x, y+6, x+3, y+6, rgb_matrix::Color(r, g, b));
 			break;
 		case 1:
+			DrawLine(canvas(), x+1, y, x+1, y+6, rgb_matrix::Color(r, g, b));
+			canvas()->SetPixel(x, y+1, r, g, b);
 			break;
 		case 2:
+			DrawLine(canvas(), x, y, x+3, y, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y, x+3, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+3, x+3, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+3, x, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+6, x+3, y+6, rgb_matrix::Color(r, g, b));
 			break;
 		case 3:
+			canvas()->SetPixel(x, y+1, r, g, b);
+			DrawLine(canvas(), x+1, y, x+2, y, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y+1, x+3, y+2, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+1, y+3, x+2, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y+4, x+3, y+5, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+1, y+6, x+2, y+6, rgb_matrix::Color(r, g, b));
+			canvas()->SetPixel(x, y+5, r, g, b);
 			break;
 		case 4:
+			DrawLine(canvas(), x, y, x, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+3, x+3, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y, x, y+6, rgb_matrix::Color(r, g, b));
 			break;
 		case 5:
+			DrawLine(canvas(), x, y, x+3, y, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y, x, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+3, x+3, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y+3, x+3, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+6, x+3, y+6, rgb_matrix::Color(r, g, b));
 			break;
 		case 6:
+			DrawLine(canvas(), x, y, x, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+3, x+3, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y+3, x+3, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+6, x+3, y+6, rgb_matrix::Color(r, g, b));
 			break;
 		case 7:
+			DrawLine(canvas(), x, y, x+3, y, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y, x+3, y+1, rgb_matrix::Color(r, g, b));
+			canvas()->SetPixel(x+2, y+2, r, g, b);
+			DrawLine(canvas(), x+1, y+3, x+1, y+6, rgb_matrix::Color(r, g, b));
 			break;
 		case 8:
+			DrawLine(canvas(), x, y, x, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y, x+3, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y, x+3, y, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+3, x+3, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+6, x+3, y+6, rgb_matrix::Color(r, g, b));
 			break;
 		case 9:
+			DrawLine(canvas(), x, y, x+3, y, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y, x+3, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y, x, y+3, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+3, x+3, y+3, rgb_matrix::Color(r, g, b));
 			break;
 		default:
 			break;
