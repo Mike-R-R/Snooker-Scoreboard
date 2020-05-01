@@ -15,6 +15,7 @@ class SnookerGame : public rgb_matrix::ThreadedCanvasManipulator{
 		~SnookerGame();
 		
 		void Run();
+		void stop_game();
 	
 	private:
 		bool game_running;

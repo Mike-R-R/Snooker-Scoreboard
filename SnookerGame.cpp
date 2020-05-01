@@ -19,6 +19,10 @@ void Snooker_Game::Run(){
 	}
 }
 
+void SnookerGame::stop_game(){
+	game_running = false;
+}
+
 /***
  * Private helper method that detects and retrieves keyboard input
  */

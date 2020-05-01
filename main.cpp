@@ -56,7 +56,7 @@ int main(int argc, char *argv[]){
 	// Image generating demo is crated. Now start the thread.
 	image_gen->Start();
 	
-	Snek* snek_pointer = dynamic_cast<Snek*>(image_gen);
+	SnookerGame* snooker_pointer = dynamic_cast<SnookerGame*>(image_gen);
 	
 	// Now, the image generation runs in the background. We can do arbitrary
 	// things here in parallel.
@@ -65,7 +65,7 @@ int main(int argc, char *argv[]){
 		sleep(1); // Time doesn't really matter. The syscall will be interrupted.
 	}
 	
-	snek_pointer->stop_game();
+	snooker_pointer->stop_game();
 	
 	// Stop image generating thread. The delete triggers
 	delete image_gen;
