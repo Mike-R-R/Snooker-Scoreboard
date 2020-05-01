@@ -86,6 +86,39 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 14, 15, 255, 0, 0);
 	canvas()->SetPixel( 15, 15, 255, 0, 0);
 	canvas()->SetPixel( 16, 15, 255, 0, 0);
+	
+	draw_number(0, 9, 2, 255, 255, 255);
+}
+
+void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
+	switch(number){
+		case 0:
+			DrawLine(canvas(), x, y, x+3, y, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y, x, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x+3, y, x+3, y+6, rgb_matrix::Color(r, g, b));
+			DrawLine(canvas(), x, y+6, x+3, y+6, rgb_matrix::Color(r, g, b));
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+		default:
+			break;
+	}
 }
 
 /***
