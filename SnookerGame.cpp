@@ -1,5 +1,6 @@
 
 #include "SnookerGame.h"
+#include <iostream>
 
 SnookerGame::SnookerGame(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m) {
 	game_running = true;
@@ -7,13 +8,21 @@ SnookerGame::SnookerGame(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasMani
 
 SnookerGame::~SnookerGame(){}
 
-void Snooker_Game::Run(){	
+void SnookerGame::Run(){
+	//curses initializations
+	char key = ' ';
+	initscr();
+	cbreak();
+	noecho();
+	keypad(stdscr, TRUE);
+	nodelay(stdscr, TRUE); 
+	
 	while(game_running){
-			if(check_for_input(&key)) {
-			// Handle input of keys we care about
-				switch(int(key)){
-					std::cout << key << std::endl;
-					std::cout << int(key) << "\n" << std::endl;
+		if(check_for_input(&key)) {
+		// Handle input of keys we care about
+			switch(int(key)){
+				std::cout << key << std::endl;
+				std::cout << int(key) << "\n" << std::endl;
 			}
 		}	
 	}
