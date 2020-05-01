@@ -70,6 +70,27 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 13, 5, 255, 0, 0);
 	canvas()->SetPixel( 13, 6, 255, 0, 0);
 	canvas()->SetPixel( 13, 7, 255, 0, 0);
+	
+	canvas()->SetPixel( 13, 9, 255, 0, 0);
+	canvas()->SetPixel( 14, 9, 255, 0, 0);
+	canvas()->SetPixel( 15, 9, 255, 0, 0);
+	canvas()->SetPixel( 16, 9, 255, 0, 0);
+	canvas()->SetPixel( 13, 10, 255, 0, 0);
+	canvas()->SetPixel( 17, 10, 255, 0, 0);
+	canvas()->SetPixel( 13, 11, 255, 0, 0);
+	canvas()->SetPixel( 17, 11, 255, 0, 0);
+	canvas()->SetPixel( 13, 12, 255, 0, 0);
+	canvas()->SetPixel( 14, 12, 255, 0, 0);
+	canvas()->SetPixel( 15, 12, 255, 0, 0);
+	canvas()->SetPixel( 16, 12, 255, 0, 0);
+	canvas()->SetPixel( 13, 13, 255, 0, 0);
+	canvas()->SetPixel( 17, 13, 255, 0, 0);
+	canvas()->SetPixel( 13, 14, 255, 0, 0);
+	canvas()->SetPixel( 17, 14, 255, 0, 0);
+	canvas()->SetPixel( 13, 15, 255, 0, 0);
+	canvas()->SetPixel( 14, 15, 255, 0, 0);
+	canvas()->SetPixel( 15, 15, 255, 0, 0);
+	canvas()->SetPixel( 16, 15, 255, 0, 0);
 }
 
 /***
