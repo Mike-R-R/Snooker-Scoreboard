@@ -105,6 +105,11 @@ void SnookerGame::setup_scoreboard(){
 	draw_number(0, 27, 10, 128, 128, 128);
 	
 	// Initial points on table
+	DrawLine(canvas(), 16, 21, 18, 21, rgb_matrix::Color(255, 255, 0));
+	DrawLine(canvas(), 19, 21, 21, 21, rgb_matrix::Color(0, 255, 0));
+	DrawLine(canvas(), 22, 21, 24, 21, rgb_matrix::Color(102, 51, 0));
+	DrawLine(canvas(), 25, 21, 27, 21, rgb_matrix::Color(0, 0, 255));
+	DrawLine(canvas(), 28, 21, 30, 21, rgb_matrix::Color(255, 0, 127));
 	draw_number(7, 26, 23, 128, 128, 128);
 	draw_number(4, 21, 23, 128, 128, 128);
 	draw_number(1, 18, 23, 128, 128, 128);
