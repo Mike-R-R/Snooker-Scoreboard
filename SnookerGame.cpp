@@ -110,7 +110,10 @@ void SnookerGame::setup_scoreboard(){
 	draw_number(1, 18, 23, 128, 128, 128);
 	
 	// Initial number of reds on table
-	DrawLine(canvas(), 0, 21, 12, 21, rgb_matrix::Color(170, 0, 0));
+	DrawLine(canvas(), 0, 21, 10, 21, rgb_matrix::Color(170, 0, 0));
+	DrawLine(canvas(), 10, 21, 10, 31, rgb_matrix::Color(170, 0, 0));
+	DrawLine(canvas(), 0, 21, 0, 31, rgb_matrix::Color(170, 0, 0));
+	DrawLine(canvas(), 0, 31, 10, 31, rgb_matrix::Color(170, 0, 0));
 	draw_number(1, 2, 23, 128, 128, 128);
 	draw_number(5, 5, 23, 128, 128, 128);
 }
