@@ -72,9 +72,9 @@ int main(int argc, char *argv[]){
 	delete canvas;
 
 	std::cout << "\n" << std::endl;
-	std::cout << "******************************\n" //<< std::endl;
-	std::cout << "* Exiting LED Matrix Program *\n" //<< std::endl;
-	std::cout << "******************************\n" //<< std::endl;
+	std::cout << "******************************\n"; //<< std::endl;
+	std::cout << "* Exiting LED Matrix Program *\n"; //<< std::endl;
+	std::cout << "******************************\n"; //<< std::endl;
 
 	return 0;
 }
