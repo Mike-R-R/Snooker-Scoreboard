@@ -87,7 +87,7 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 14, 9, 255, 0, 0);
 	
 	// Line break
-	DrawLine(canvas(), 1, 11, 30, 11, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 2, 11, 29, 11, rgb_matrix::Color(100, 0, 0));
 	
 	// Setup B area indicating current break
 	canvas()->SetPixel( 14, 13, 255, 0, 0);
@@ -205,6 +205,18 @@ void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
 		default:
 			break;
 	}
+}
+
+void SnookerGame::player_at_table(int player, bool onRed){
+	int x;
+	int y = 0;
+	
+	if( player == 1){
+		x = 0;
+		y = 0;
+	} else {
+		x = 18;
+		y = 0;
 }
 
 /***

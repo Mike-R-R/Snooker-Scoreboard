@@ -22,6 +22,7 @@ class SnookerGame : public rgb_matrix::ThreadedCanvasManipulator{
 		bool game_running;
 		void setup_scoreboard();
 		void draw_number(int,int,int,int,int,int);
+		void player_at_table(int, bool);
 		void update_board(int,int,int,int);
 		bool check_for_input(char *c);
 	
