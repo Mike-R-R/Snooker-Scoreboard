@@ -65,44 +65,44 @@ bool SnookerGame::running(){
 
 void SnookerGame::setup_scoreboard(){
 	// Setup P area indicating player points
-	canvas()->SetPixel( 14, 1, 255, 0, 0);
-	canvas()->SetPixel( 15, 1, 255, 0, 0);
-	canvas()->SetPixel( 16, 1, 255, 0, 0);
 	canvas()->SetPixel( 14, 2, 255, 0, 0);
-	canvas()->SetPixel( 17, 2, 255, 0, 0);
+	canvas()->SetPixel( 15, 2, 255, 0, 0);
+	canvas()->SetPixel( 16, 2, 255, 0, 0);
 	canvas()->SetPixel( 14, 3, 255, 0, 0);
 	canvas()->SetPixel( 17, 3, 255, 0, 0);
 	canvas()->SetPixel( 14, 4, 255, 0, 0);
-	canvas()->SetPixel( 15, 4, 255, 0, 0);
-	canvas()->SetPixel( 16, 4, 255, 0, 0);
+	canvas()->SetPixel( 17, 4, 255, 0, 0);
 	canvas()->SetPixel( 14, 5, 255, 0, 0);
+	canvas()->SetPixel( 15, 5, 255, 0, 0);
+	canvas()->SetPixel( 16, 5, 255, 0, 0);
 	canvas()->SetPixel( 14, 6, 255, 0, 0);
 	canvas()->SetPixel( 14, 7, 255, 0, 0);
+	canvas()->SetPixel( 14, 8, 255, 0, 0);
 	
 	// Setup B area indicating current break
-	canvas()->SetPixel( 14, 9, 255, 0, 0);
-	canvas()->SetPixel( 15, 9, 255, 0, 0);
-	canvas()->SetPixel( 16, 9, 255, 0, 0);
 	canvas()->SetPixel( 14, 10, 255, 0, 0);
-	canvas()->SetPixel( 17, 10, 255, 0, 0);
+	canvas()->SetPixel( 15, 10, 255, 0, 0);
+	canvas()->SetPixel( 16, 10, 255, 0, 0);
 	canvas()->SetPixel( 14, 11, 255, 0, 0);
 	canvas()->SetPixel( 17, 11, 255, 0, 0);
 	canvas()->SetPixel( 14, 12, 255, 0, 0);
-	canvas()->SetPixel( 15, 12, 255, 0, 0);
-	canvas()->SetPixel( 16, 12, 255, 0, 0);
+	canvas()->SetPixel( 17, 12, 255, 0, 0);
 	canvas()->SetPixel( 14, 13, 255, 0, 0);
-	canvas()->SetPixel( 17, 13, 255, 0, 0);
+	canvas()->SetPixel( 15, 13, 255, 0, 0);
+	canvas()->SetPixel( 16, 13, 255, 0, 0);
 	canvas()->SetPixel( 14, 14, 255, 0, 0);
 	canvas()->SetPixel( 17, 14, 255, 0, 0);
 	canvas()->SetPixel( 14, 15, 255, 0, 0);
-	canvas()->SetPixel( 15, 15, 255, 0, 0);
-	canvas()->SetPixel( 16, 15, 255, 0, 0);
+	canvas()->SetPixel( 17, 15, 255, 0, 0);
+	canvas()->SetPixel( 14, 16, 255, 0, 0);
+	canvas()->SetPixel( 15, 16, 255, 0, 0);
+	canvas()->SetPixel( 16, 16, 255, 0, 0);
 	
 	//Initial Point and Break values
-	draw_number(0, 1, 1, 128, 128, 128);
-	draw_number(0, 27, 1, 128, 128, 128);
-	draw_number(0, 1, 9, 128, 128, 128);
-	draw_number(0, 27, 9, 128, 128, 128);
+	draw_number(0, 1, 2, 128, 128, 128);
+	draw_number(0, 27, 2, 128, 128, 128);
+	draw_number(0, 1, 10, 128, 128, 128);
+	draw_number(0, 27, 10, 128, 128, 128);
 	
 	// Initial points on table
 	draw_number(7, 26, 23, 128, 128, 128);
