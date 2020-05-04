@@ -99,19 +99,19 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 16, 15, 255, 0, 0);
 	
 	//Initial Point and Break values
-	draw_number(0, 1, 1, 255, 255, 255);
-	draw_number(0, 27, 1, 255, 255, 255);
-	draw_number(0, 1, 9, 255, 255, 255);
-	draw_number(0, 27, 9, 255, 255, 255);
+	draw_number(0, 1, 1, 128, 128, 128);
+	draw_number(0, 27, 1, 128, 128, 128);
+	draw_number(0, 1, 9, 128, 128, 128);
+	draw_number(0, 27, 9, 128, 128, 128);
 	
 	// Initial points on table
-	draw_number(7, 26, 23, 255, 255, 255);
-	draw_number(4, 21, 23, 255, 255, 255);
-	draw_number(1, 18, 23, 255, 255, 255);
+	draw_number(7, 26, 23, 128, 128, 128);
+	draw_number(4, 21, 23, 128, 128, 128);
+	draw_number(1, 18, 23, 128, 128, 128);
 	
 	// Initial number of reds on table
-	draw_number(1, 2, 23, 180, 180, 180);
-	draw_number(5, 5, 23, 180, 180, 180);
+	draw_number(1, 2, 23, 128, 128, 128);
+	draw_number(5, 5, 23, 128, 128, 128);
 }
 
 void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
