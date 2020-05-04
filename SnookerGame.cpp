@@ -66,8 +66,10 @@ bool SnookerGame::running(){
 void SnookerGame::setup_scoreboard(){
 	
 	// Initial shooting player
-	DrawLine(canvas(), 0, 0, 17, 0, rgb_matrix::Color(100, 0, 0));
-	DrawLine(canvas(), 0, 1, 17, 1, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 0, 0, 0, 2, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 13, 0, 13, 2, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 1, 0, 12, 0, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 1, 1, 12, 1, rgb_matrix::Color(100, 0, 0));
 	
 	// Setup P area indicating player points
 	canvas()->SetPixel( 14, 3, 255, 0, 0);
