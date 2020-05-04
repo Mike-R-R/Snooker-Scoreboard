@@ -64,29 +64,27 @@ bool SnookerGame::running(){
 }
 
 void SnookerGame::setup_scoreboard(){
+	
+	// Initial shooting player
+	DrawLine(canvas(), 0, 0, 17, 0, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 0, 1, 17, 1, rgb_matrix::Color(100, 0, 0));
+	
 	// Setup P area indicating player points
-	canvas()->SetPixel( 14, 2, 255, 0, 0);
-	canvas()->SetPixel( 15, 2, 255, 0, 0);
-	canvas()->SetPixel( 16, 2, 255, 0, 0);
 	canvas()->SetPixel( 14, 3, 255, 0, 0);
-	canvas()->SetPixel( 17, 3, 255, 0, 0);
+	canvas()->SetPixel( 15, 3, 255, 0, 0);
+	canvas()->SetPixel( 16, 3, 255, 0, 0);
 	canvas()->SetPixel( 14, 4, 255, 0, 0);
 	canvas()->SetPixel( 17, 4, 255, 0, 0);
 	canvas()->SetPixel( 14, 5, 255, 0, 0);
-	canvas()->SetPixel( 15, 5, 255, 0, 0);
-	canvas()->SetPixel( 16, 5, 255, 0, 0);
+	canvas()->SetPixel( 17, 5, 255, 0, 0);
 	canvas()->SetPixel( 14, 6, 255, 0, 0);
+	canvas()->SetPixel( 15, 6, 255, 0, 0);
+	canvas()->SetPixel( 16, 6, 255, 0, 0);
 	canvas()->SetPixel( 14, 7, 255, 0, 0);
 	canvas()->SetPixel( 14, 8, 255, 0, 0);
+	canvas()->SetPixel( 14, 9, 255, 0, 0);
 	
 	// Setup B area indicating current break
-	canvas()->SetPixel( 14, 10, 255, 0, 0);
-	canvas()->SetPixel( 15, 10, 255, 0, 0);
-	canvas()->SetPixel( 16, 10, 255, 0, 0);
-	canvas()->SetPixel( 14, 11, 255, 0, 0);
-	canvas()->SetPixel( 17, 11, 255, 0, 0);
-	canvas()->SetPixel( 14, 12, 255, 0, 0);
-	canvas()->SetPixel( 17, 12, 255, 0, 0);
 	canvas()->SetPixel( 14, 13, 255, 0, 0);
 	canvas()->SetPixel( 15, 13, 255, 0, 0);
 	canvas()->SetPixel( 16, 13, 255, 0, 0);
@@ -97,12 +95,19 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 14, 16, 255, 0, 0);
 	canvas()->SetPixel( 15, 16, 255, 0, 0);
 	canvas()->SetPixel( 16, 16, 255, 0, 0);
+	canvas()->SetPixel( 14, 17, 255, 0, 0);
+	canvas()->SetPixel( 17, 17, 255, 0, 0);
+	canvas()->SetPixel( 14, 18, 255, 0, 0);
+	canvas()->SetPixel( 17, 18, 255, 0, 0);
+	canvas()->SetPixel( 14, 19, 255, 0, 0);
+	canvas()->SetPixel( 15, 19, 255, 0, 0);
+	canvas()->SetPixel( 16, 19, 255, 0, 0);
 	
 	//Initial Point and Break values
-	draw_number(0, 1, 2, 128, 128, 128);
-	draw_number(0, 27, 2, 128, 128, 128);
-	draw_number(0, 1, 10, 128, 128, 128);
-	draw_number(0, 27, 10, 128, 128, 128);
+	draw_number(0, 1, 3, 128, 128, 128);
+	draw_number(0, 27, 3, 128, 128, 128);
+	draw_number(0, 1, 13, 128, 128, 128);
+	draw_number(0, 27, 13, 128, 128, 128);
 	
 	// Initial points on table
 	DrawLine(canvas(), 16, 21, 18, 21, rgb_matrix::Color(100, 0, 0));
