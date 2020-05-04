@@ -23,6 +23,15 @@ void SnookerGame::Run(){
 		if(check_for_input(&key)) {
 			// Handle input of keys we care about
 			switch(int(key)){
+				case 10:
+					// Handle enter key press
+					break;
+				case 43:
+					// Handle '+' key press
+					break;
+				case 45:
+					// Handle '-' key press
+					break;
 				case 49:
 					break;
 				case 50:
@@ -55,6 +64,7 @@ bool SnookerGame::running(){
 }
 
 void SnookerGame::setup_scoreboard(){
+	// Setup P area indicating player points
 	canvas()->SetPixel( 14, 1, 255, 0, 0);
 	canvas()->SetPixel( 15, 1, 255, 0, 0);
 	canvas()->SetPixel( 16, 1, 255, 0, 0);
@@ -69,6 +79,7 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 14, 6, 255, 0, 0);
 	canvas()->SetPixel( 14, 7, 255, 0, 0);
 	
+	// Setup B area indicating current break
 	canvas()->SetPixel( 14, 9, 255, 0, 0);
 	canvas()->SetPixel( 15, 9, 255, 0, 0);
 	canvas()->SetPixel( 16, 9, 255, 0, 0);
