@@ -217,6 +217,7 @@ void SnookerGame::player_at_table(int player, bool onRed){
 	} else {
 		x = 18;
 		y = 0;
+	}
 }
 
 /***
