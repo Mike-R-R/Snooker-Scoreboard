@@ -110,8 +110,8 @@ void SnookerGame::setup_scoreboard(){
 	draw_number(1, 18, 23, 255, 255, 255);
 	
 	// Initial number of reds on table
-	draw_number(1, 1, 24, 255, 255, 255);
-	draw_number(5, 4, 24, 255, 255, 255);
+	draw_number(1, 2, 23, 255, 255, 255);
+	draw_number(5, 5, 23, 255, 255, 255);
 }
 
 void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
