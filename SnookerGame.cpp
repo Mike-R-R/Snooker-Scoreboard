@@ -85,7 +85,7 @@ void SnookerGame::setup_scoreboard(){
 	canvas()->SetPixel( 14, 9, 255, 0, 0);
 	
 	// Line break
-	DrawLine(canvas(), 1, 10, 30, 10, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 1, 11, 30, 11, rgb_matrix::Color(100, 0, 0));
 	
 	// Setup B area indicating current break
 	canvas()->SetPixel( 14, 13, 255, 0, 0);
