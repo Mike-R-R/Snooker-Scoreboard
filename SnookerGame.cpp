@@ -114,25 +114,25 @@ void SnookerGame::setup_scoreboard(){
 	
 	// Frame red and points on table area.
 	DrawLine(canvas(), 0, 21, 31, 21, rgb_matrix::Color(100, 0, 0));
-	DrawLine(canvas(), 13, 21, 13, 31, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 12, 21, 12, 31, rgb_matrix::Color(100, 0, 0));
 	DrawLine(canvas(), 0, 21, 0, 31, rgb_matrix::Color(100, 0, 0));
-	DrawLine(canvas(), 0, 31, 13, 31, rgb_matrix::Color(100, 0, 0));
-	DrawLine(canvas(), 31, 21, 31, 30, rgb_matrix::Color(100, 0, 0));
-	DrawLine(canvas(), 14, 31, 16, 31, rgb_matrix::Color(170, 170, 0));
-	DrawLine(canvas(), 17, 31, 19, 31, rgb_matrix::Color(0, 170, 0));
-	DrawLine(canvas(), 20, 31, 22, 31, rgb_matrix::Color(102, 51, 0));
-	DrawLine(canvas(), 23, 31, 25, 31, rgb_matrix::Color(0, 0, 170));
-	DrawLine(canvas(), 26, 31, 28, 31, rgb_matrix::Color(255, 0, 127));
-	DrawLine(canvas(), 29, 31, 31, 31, rgb_matrix::Color(32, 32, 32));
+	DrawLine(canvas(), 0, 31, 12, 31, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 31, 21, 31, 31, rgb_matrix::Color(100, 0, 0));
+	DrawLine(canvas(), 13, 31, 15, 31, rgb_matrix::Color(170, 170, 0));
+	DrawLine(canvas(), 16, 31, 18, 31, rgb_matrix::Color(0, 170, 0));
+	DrawLine(canvas(), 19, 31, 21, 31, rgb_matrix::Color(102, 51, 0));
+	DrawLine(canvas(), 22, 31, 24, 31, rgb_matrix::Color(0, 0, 170));
+	DrawLine(canvas(), 25, 31, 27, 31, rgb_matrix::Color(255, 0, 127));
+	DrawLine(canvas(), 28, 31, 30, 31, rgb_matrix::Color(32, 32, 32));
 	
 	// Initial points on table
-	draw_number(7, 25, 23, 128, 128, 128);
-	draw_number(4, 20, 23, 128, 128, 128);
-	draw_number(1, 17, 23, 128, 128, 128);
+	draw_number(7, 24, 23, 128, 128, 128);
+	draw_number(4, 19, 23, 128, 128, 128);
+	draw_number(1, 16, 23, 128, 128, 128);
 	
 	// Initial number of reds on table
-	draw_number(1, 4, 23, 128, 128, 128);
-	draw_number(5, 7, 23, 128, 128, 128);
+	draw_number(1, 3, 23, 128, 128, 128);
+	draw_number(5, 6, 23, 128, 128, 128);
 }
 
 void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
