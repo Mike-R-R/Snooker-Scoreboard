@@ -67,7 +67,6 @@ void SnookerGame::setup_scoreboard(){
 	
 	// Initial shooting player
 	player_at_table(1, false);
-	player_at_table(2, true);
 	
 	// Setup P area indicating player points
 	canvas()->SetPixel( 14, 3, 255, 0, 0);
