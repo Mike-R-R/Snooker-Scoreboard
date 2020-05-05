@@ -66,10 +66,7 @@ bool SnookerGame::running(){
 void SnookerGame::setup_scoreboard(){
 	
 	// Initial shooting player
-	DrawLine(canvas(), 0, 0, 0, 2, rgb_matrix::Color(100, 0, 0));
-	DrawLine(canvas(), 13, 0, 13, 2, rgb_matrix::Color(100, 0, 0));
-	DrawLine(canvas(), 1, 0, 12, 0, rgb_matrix::Color(100, 0, 0));
-	DrawLine(canvas(), 1, 1, 12, 1, rgb_matrix::Color(100, 0, 0));
+	player_at_table(1, false);
 	
 	// Setup P area indicating player points
 	canvas()->SetPixel( 14, 3, 255, 0, 0);
@@ -207,16 +204,22 @@ void SnookerGame::draw_number(int number, int x, int y, int r, int g, int b){
 	}
 }
 
-void SnookerGame::player_at_table(int player, bool onRed){
-	int x;
-	int y = 0;
-	
-	if( player == 1){
-		x = 0;
-		y = 0;
+void SnookerGame::player_at_table(int player, bool color){
+	if(player == 1){
+		draw_shooting_indicator(0, 0, color);
 	} else {
-		x = 18;
-		y = 0;
+		draw_shooting_indicator(19, 0, color);
+	}
+}
+
+void SnookerGame::draw_shooting_indicator(int x, int y, bool color){
+	if(color){
+	
+	} else {
+		DrawLine(canvas(), x, y, x, y+2, rgb_matrix::Color(100, 0, 0));
+		DrawLine(canvas(), x+13, y, x+13, y+2, rgb_matrix::Color(100, 0, 0));
+		DrawLine(canvas(), x+1, y, x+12, y, rgb_matrix::Color(100, 0, 0));
+		DrawLine(canvas(), x+1, y+1, x+12, y+1, rgb_matrix::Color(100, 0, 0));
 	}
 }
 
