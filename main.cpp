@@ -3,7 +3,7 @@
 #include "threaded-canvas-manipulator.h"
 #include "pixel-mapper.h"
 #include "graphics.h"
-#include "SnookerGame.h"
+#include "SnookerScoreboard.h"
 
 #include <signal.h>
 #include <unistd.h>
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]){
 	// the matrix continuously.
 	rgb_matrix::ThreadedCanvasManipulator* image_gen = NULL;
 
-	image_gen = new SnookerGame(canvas);
+	image_gen = new SnookerScoreboard(canvas);
 	
 	// Set up an interrupt handler to be able to stop animations while they go
 	// on. Note, each demo tests for while (running() && !interrupt_received) {},
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]){
 	// Image generating demo is crated. Now start the thread.
 	image_gen->Start();
 	
-	SnookerGame* snooker_pointer = dynamic_cast<SnookerGame*>(image_gen);
+	SnookerScoreboard* snooker_pointer = dynamic_cast<SnookerScoreboard*>(image_gen);
 	
 	// Now, the image generation runs in the background. We can do arbitrary
 	// things here in parallel.
