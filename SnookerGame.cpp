@@ -209,7 +209,7 @@ void SnookerGame::player_at_table(int player, bool color){
 	if(player == 1){
 		draw_shooting_indicator(0, 0, color);
 	} else {
-		draw_shooting_indicator(19, 0, color);
+		draw_shooting_indicator(18, 0, color);
 	}
 }
 
