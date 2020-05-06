@@ -1,15 +1,25 @@
 
 #include "SnookerScoreboard.h"
+#include "SnookerGame.h"
+
 #include <iostream>
 
-SnookerScoreboard::SnookerScoreboard(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m) {
-	game_running = true;
+#define RED 1
+#define YELLOW 2
+#define GREEN 3
+#define BROWN 4
+#define BLUE 5
+#define PINK 6
+#define BLACK 7
+
+SnookerScoreboard::SnookerScoreboard(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m), game_running(true), theGame() {
+	
 }
 
 SnookerScoreboard::~SnookerScoreboard(){}
 
 void SnookerScoreboard::Run(){
-	//curses initializations
+	// Curses initializations
 	char key = ' ';
 	initscr();
 	cbreak();
@@ -28,33 +38,46 @@ void SnookerScoreboard::Run(){
 					break;
 				case 10:
 					// Handle enter key press
+					theGame.endBreak();
+					break;
+				case 42:
+					// Handle '*' key press
 					break;
 				case 43:
 					// Handle '+' key press
 					break;
 				case 45:
 					// Handle '-' key press
+					theGame.lostRed();
 					break;
 				case 49:
+					theGame.addPoints(RED);
 					break;
 				case 50:
+					theGame.addPoints(YELLOW);
 					break;
 				case 51:
+					theGame.addPoints(GREEN);
 					break;
 				case 52:
+					theGame.addPoints(BROWN);
 					break;
 				case 53:
+					theGame.addPoints(BLUE);
 					break;
 				case 54:
+					theGame.addPoints(PINK);
 					break;
 				case 55:
+					theGame.addPoints(BLACK);
 					break;
 				default:
 					std::cout << key << std::endl;
 					std::cout << int(key) << "\n" << std::endl;
 					break;
 			}
-		}	
+			update_board();
+		}
 	}
 }
 
@@ -85,8 +108,11 @@ void SnookerScoreboard::setup_scoreboard(){
 	canvas()->SetPixel( 14, 7, 255, 0, 0);
 	canvas()->SetPixel( 14, 8, 255, 0, 0);
 	canvas()->SetPixel( 14, 9, 255, 0, 0);
+	
+	/*
 	draw_number(0, 1, 3, 128, 128, 128);
 	draw_number(0, 27, 3, 128, 128, 128);
+	*/
 	
 	// Line break
 	DrawLine(canvas(), 2, 11, 29, 11, rgb_matrix::Color(100, 0, 0));
@@ -109,8 +135,11 @@ void SnookerScoreboard::setup_scoreboard(){
 	canvas()->SetPixel( 14, 19, 255, 0, 0);
 	canvas()->SetPixel( 15, 19, 255, 0, 0);
 	canvas()->SetPixel( 16, 19, 255, 0, 0);
+	
+	/*
 	draw_number(0, 1, 13, 128, 128, 128);
 	draw_number(0, 27, 13, 128, 128, 128);
+	*/
 	
 	// Frame reds and points on table area.
 	DrawLine(canvas(), 0, 21, 31, 21, rgb_matrix::Color(100, 0, 0));
@@ -125,6 +154,7 @@ void SnookerScoreboard::setup_scoreboard(){
 	DrawLine(canvas(), 25, 31, 27, 31, rgb_matrix::Color(255, 0, 127));
 	DrawLine(canvas(), 28, 31, 30, 31, rgb_matrix::Color(32, 32, 32));
 	
+	/*
 	// Initial points on table
 	draw_number(7, 24, 23, 128, 128, 128);
 	draw_number(4, 19, 23, 128, 128, 128);
@@ -133,6 +163,9 @@ void SnookerScoreboard::setup_scoreboard(){
 	// Initial number of reds on table
 	draw_number(1, 3, 23, 128, 128, 128);
 	draw_number(5, 6, 23, 128, 128, 128);
+	*/
+	
+	update_board();
 }
 
 void SnookerScoreboard::draw_number(int number, int x, int y, int r, int g, int b){
@@ -235,6 +268,141 @@ void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool color){
 		DrawLine(canvas(), x+1, y, x+12, y, rgb_matrix::Color(100, 0, 0));
 		DrawLine(canvas(), x+1, y+1, x+12, y+1, rgb_matrix::Color(100, 0, 0));
 	}
+}
+
+void SnookerScoreboard::update_board(){
+	
+}
+
+void SnookerScoreboard::clear_board(){
+	// Clear points
+	DrawLine(canvas(), 1, 3, 12, 3, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 4, 12, 4, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 5, 12, 5, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 6, 12, 6, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 7, 12, 7, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 8, 12, 8, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 9, 12, 9, rgb_matrix::Color(0, 0, 0));
+	
+	DrawLine(canvas(), 19, 3, 30, 3, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 4, 30, 4, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 5, 30, 5, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 6, 30, 6, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 7, 30, 7, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 8, 30, 8, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 9, 30, 9, rgb_matrix::Color(0, 0, 0));
+	
+	// Clear break
+	DrawLine(canvas(), 1, 13, 12, 13, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 14, 12, 14, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 15, 12, 15, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 16, 12, 16, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 17, 12, 17, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 18, 12, 18, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 1, 19, 12, 19, rgb_matrix::Color(0, 0, 0));
+	
+	DrawLine(canvas(), 19, 13, 30, 13, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 14, 30, 14, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 15, 30, 15, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 16, 30, 16, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 17, 30, 17, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 18, 30, 18, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 19, 19, 30, 19, rgb_matrix::Color(0, 0, 0));
+	
+	// Clear reds
+	DrawLine(canvas(), 3, 23, 12, 23, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 24, 12, 24, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 25, 12, 25, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 26, 12, 26, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 27, 12, 27, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 28, 12, 28, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 29, 12, 29, rgb_matrix::Color(0, 0, 0));
+	
+	// Clear remaining points
+	DrawLine(canvas(), 16, 23, 27, 23, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 16, 24, 27, 24, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 16, 25, 27, 25, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 16, 26, 27, 26, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 16, 27, 27, 27, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 16, 28, 27, 28, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 16, 29, 27, 29, rgb_matrix::Color(0, 0, 0));
+}
+
+void SnookerScoreboard::populate_board(){
+	
+	// Populate player points
+	int points[2] = theGame.getPlayerScores();
+	int x = 1;
+	
+	if((temp[0]/100)%10 != 0){
+		draw_number(1, x, 3);
+		x += 3;
+	}
+	
+	if((temp[0]/10)%10 != 0 || x == 4){
+		draw_number((temp[0]/10)%10, x, 3);
+		x += 5
+	}
+	
+	draw_number(temp[0]%10, x, 3);
+	
+	if((temp[1]/100)%10 != 0){
+		draw_number(1, 19, 3);
+	}
+	
+	if((temp[1]/10)%10 != 0){
+		draw_number((temp[0]/10)%10, 22, 3);
+	}
+	
+	draw_number(temp[1]%10, 27, 3);
+	
+	// Populate player breaks
+	int breaks[2] = theGame.getPlayerBreaks();
+	x = 1;
+	
+	if((breaks[0]/100)%10 != 0){
+		draw_number(1, x, 13);
+		x += 3;
+	}
+	
+	if((breaks[0]/10)%10 != 0 || x == 4){
+		draw_number((breaks[0]/10)%10, x, 13);
+		x += 5
+	}
+	
+	draw_number(temp[0]%10, x, 13);
+	
+	if((breaks[1]/100)%10 != 0){
+		draw_number(1, 19, 13);
+	}
+	
+	if((breaks[1]/10)%10 != 0){
+		draw_number((breaks[0]/10)%10, 22, 13);
+	}
+	
+	draw_number(breaks[1]%10, 27, 13);
+	
+	// Popluate reds on table
+	int reds = theGame.remainingReds();
+	
+	if((reds/10)%10 != 0){
+		draw_number(1, 3, 13);
+	}
+	
+	draw_number(reds%10, 6, 23);
+	
+	// Populate points on table
+	int pointsOnTable = theGame.remainingPoints();
+	
+	if((pointsOnTable/100)%10 != 0){
+		draw_number(1, 16, 23);
+	}
+	
+	if((pointsOnTable/10)%10 != 0){
+		draw_number((temp[0]/10)%10, 19, 23);
+	}
+	
+	draw_number(pointsOnTable%10, 24, 23);
 }
 
 /***

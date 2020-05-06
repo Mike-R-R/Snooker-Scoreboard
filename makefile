@@ -1,5 +1,5 @@
 CXXFLAGS=-Wall -O3 -g -Wextra -Wno-unused-parameter
-OBJECTS=main.o SnookerScoreboard.o
+OBJECTS=main.o SnookerScoreboard.o SnookerGame.o Player.o
 BINARIES=main
 
 # RGB Library resolution and flags
@@ -15,7 +15,7 @@ all: $(BINARIES)
 $(RGB_LIBRARY): FORCE
 	$(MAKE) -C $(RGB_LIBDIR)
 
-main: main.o SnookerScoreboard.o $(RGB_LIBRARY)
+main: main.o SnookerScoreboard.o SnookerGame.o Player.o $(RGB_LIBRARY)
 	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
 
 %.o: %.cpp
