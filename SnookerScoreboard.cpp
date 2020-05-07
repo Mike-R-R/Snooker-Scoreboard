@@ -331,6 +331,7 @@ void SnookerScoreboard::clear_board(){
 	DrawLine(canvas(), 16, 29, 27, 29, rgb_matrix::Color(0, 0, 0));
 }
 
+/*
 void SnookerScoreboard::populate_board(){
 	
 	// Populate player points
@@ -409,6 +410,7 @@ void SnookerScoreboard::populate_board(){
 	
 	draw_number(pointsOnTable%10, 24, 23, 128, 128, 128);
 }
+*/
 
 /***
  * Private helper method that detects and retrieves keyboard input
