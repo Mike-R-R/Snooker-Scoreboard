@@ -6,6 +6,7 @@
 Player::Player()
 {
     score = 0;
+    currentBreak = 0;
     highBreak = 0;
     framesWon = 0;
     onRed = true;
@@ -20,6 +21,7 @@ Player::Player()
 Player::Player(bool breaking)
 {
     score = 0;
+    currentBreak = 0;
     highBreak = 0;
     framesWon = 0;
     onRed = true;
@@ -127,6 +129,7 @@ void Player::wonFrame()
     framesWon++;
     score = 0;
     currentBreak = 0;
+    highBreak = 0;
 }
 
 
@@ -137,4 +140,5 @@ void Player::lostFrame()
 {
     score = 0;
     currentBreak = 0;
+    highBreak = 0;
 }

@@ -3,11 +3,11 @@
 
 class Player{
     int score;
-    int highBreak;
     int framesWon;
     int currentBreak;
-    bool atTable;
+    int highBreak;
     bool onRed;
+    bool atTable;
     
     public:
         Player();
