@@ -335,74 +335,74 @@ void SnookerScoreboard::populate_board(){
 	int x = 1;
 	
 	if((points[0]/100)%10 != 0){
-		draw_number(1, x, 3);
+		draw_number(1, x, 3, 128, 128, 128);
 		x += 3;
 	}
 	
 	if((points[0]/10)%10 != 0 || x == 4){
-		draw_number((points[0]/10)%10, x, 3);
+		draw_number((points[0]/10)%10, x, 3, 128, 128, 128);
 		x += 5
 	}
 	
-	draw_number(points[0]%10, x, 3);
+	draw_number(points[0]%10, x, 3, 128, 128, 128);
 	
 	if((points[1]/100)%10 != 0){
-		draw_number(1, 19, 3);
+		draw_number(1, 19, 3, 128, 128, 128);
 	}
 	
 	if((points[1]/10)%10 != 0){
-		draw_number((points[0]/10)%10, 22, 3);
+		draw_number((points[0]/10)%10, 22, 3, 128, 128, 128);
 	}
 	
-	draw_number(points[1]%10, 27, 3);
+	draw_number(points[1]%10, 27, 3, 128, 128, 128);
 	
 	// Populate player breaks
 	int breaks[2] = theGame.getPlayerBreaks();
 	x = 1;
 	
 	if((breaks[0]/100)%10 != 0){
-		draw_number(1, x, 13);
+		draw_number(1, x, 13, 128, 128, 128);
 		x += 3;
 	}
 	
 	if((breaks[0]/10)%10 != 0 || x == 4){
-		draw_number((breaks[0]/10)%10, x, 13);
+		draw_number((breaks[0]/10)%10, x, 13, 128, 128, 128);
 		x += 5
 	}
 	
-	draw_number(temp[0]%10, x, 13);
+	draw_number(temp[0]%10, x, 13, 128, 128, 128);
 	
 	if((breaks[1]/100)%10 != 0){
-		draw_number(1, 19, 13);
+		draw_number(1, 19, 13, 128, 128, 128);
 	}
 	
 	if((breaks[1]/10)%10 != 0){
-		draw_number((breaks[0]/10)%10, 22, 13);
+		draw_number((breaks[0]/10)%10, 22, 13, 128, 128, 128);
 	}
 	
-	draw_number(breaks[1]%10, 27, 13);
+	draw_number(breaks[1]%10, 27, 13, 128, 128, 128);
 	
 	// Popluate reds on table
 	int reds = theGame.remainingReds();
 	
 	if((reds/10)%10 != 0){
-		draw_number(1, 3, 13);
+		draw_number(1, 3, 13, 128, 128, 128);
 	}
 	
-	draw_number(reds%10, 6, 23);
+	draw_number(reds%10, 6, 23, 128, 128, 128);
 	
 	// Populate points on table
 	int pointsOnTable = theGame.remainingPoints();
 	
 	if((pointsOnTable/100)%10 != 0){
-		draw_number(1, 16, 23);
+		draw_number(1, 16, 23, 128, 128, 128);
 	}
 	
 	if((pointsOnTable/10)%10 != 0){
-		draw_number((temp[0]/10)%10, 19, 23);
+		draw_number((temp[0]/10)%10, 19, 23, 128, 128, 128);
 	}
 	
-	draw_number(pointsOnTable%10, 24, 23);
+	draw_number(pointsOnTable%10, 24, 23, 128, 128, 128);
 }
 
 /***
