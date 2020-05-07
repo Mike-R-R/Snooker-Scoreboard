@@ -306,19 +306,14 @@ void SnookerScoreboard::update_board(){
 	clear_board();
 	populate_board();
 	clear_shooting_indicator();
-	
-	/*
-	clear_shooting_indicator();
-	
-	bool *onRed;
-	int player = theGame->player_at_table(onRed);
+
+	int player = theGame->player_at_table();
 	
 	if(player == 1){
-		draw_shooting_indicator(0, 0, *onRed);
+		draw_shooting_indicator(0, 0, theGame->player_shooting_red());
 	} else {
-		draw_shooting_indicator(18, 0, *onRed);
+		draw_shooting_indicator(18, 0, theGame->player_shooting_red());
 	}
-	*/
 }
 
 
