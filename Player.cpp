@@ -93,8 +93,8 @@ bool Player::get_player_at_table(){
 /**
  * Player potted a ball.
  */
-void ball_potted(int){
-    add_points(int);
+void Player::ball_potted(int points){
+    add_points(points);
     onRed = !onRed;
 }
 
