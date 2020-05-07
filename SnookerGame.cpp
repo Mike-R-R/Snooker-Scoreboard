@@ -96,6 +96,7 @@ void SnookerGame::potted_ball(int points){
 		case 1:
 			if(reds > 0){
 				playerAtTable->ball_potted(points);
+				reds--;
 				pointsOnTable -= 7;
 			}
 			break;
