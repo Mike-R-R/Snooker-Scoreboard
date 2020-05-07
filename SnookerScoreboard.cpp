@@ -1,6 +1,5 @@
 
 #include "SnookerScoreboard.h"
-#include "SnookerGame.h"
 
 #include <iostream>
 
@@ -341,7 +340,7 @@ void SnookerScoreboard::populate_board(){
 	
 	if((points[0]/10)%10 != 0 || x == 4){
 		draw_number((points[0]/10)%10, x, 3, 128, 128, 128);
-		x += 5
+		x += 5;
 	}
 	
 	draw_number(points[0]%10, x, 3, 128, 128, 128);
@@ -367,10 +366,10 @@ void SnookerScoreboard::populate_board(){
 	
 	if((breaks[0]/10)%10 != 0 || x == 4){
 		draw_number((breaks[0]/10)%10, x, 13, 128, 128, 128);
-		x += 5
+		x += 5;
 	}
 	
-	draw_number(temp[0]%10, x, 13, 128, 128, 128);
+	draw_number(breaks[0]%10, x, 13, 128, 128, 128);
 	
 	if((breaks[1]/100)%10 != 0){
 		draw_number(1, 19, 13, 128, 128, 128);

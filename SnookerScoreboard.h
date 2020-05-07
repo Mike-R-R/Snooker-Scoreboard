@@ -6,6 +6,7 @@
 #include "threaded-canvas-manipulator.h"
 #include "pixel-mapper.h"
 #include "graphics.h"
+#include "SnookerGame.h"
 
 #include <curses.h>
 
