@@ -166,7 +166,7 @@ void SnookerScoreboard::setup_scoreboard(){
 	
 	//update_board();
 	
-	int points[2];
+	//int points[2];
 	//draw_number(points[0], 1, 3, 128, 128, 128);
 }
 
