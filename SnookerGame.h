@@ -15,7 +15,6 @@ class SnookerGame {
         void get_player_scores(int *);
         void get_player_breaks(int *);
         void point_spread(int *);
-        void add_points(int);
         void potted_ball(int);
         void foul(int);
         void free_ball();

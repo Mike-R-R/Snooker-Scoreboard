@@ -85,29 +85,64 @@ void SnookerGame::point_spread(int * arr){
 }
 
 
-/*
- * Add scored points to the player at the table
- */
-void SnookerGame::add_points(int points){
-    Player* player = player_at_table();
-    
-    player->add_points(points);
-}
-
-
 /**
- * Player potted a red
+ * Player potted a ball
  */
 void SnookerGame::potted_ball(int points){
 	Player* playerAtTable = player_at_table();
-
-	playerAtTable->ball_potted(points);
+	bool valid_shot = false
 	
-	if(points == 1){
-		reds--;
+	switch(points){
+		case 1:
+			if(reds > 0){
+				valid_shot = true;
+				reds--;
+			}
+			break;
+		case 2:
+			if(pointsOnTable == 27){
+				valid_shot = true;
+			}
+			break;
+		case 3:
+			if(pointsOnTable == 25){
+				valid_shot = true;
+			}
+			break;
+		case 4:
+			if(pointsOnTable == 22){
+				valid_shot = true;
+			}
+			break;
+		case 5:
+			if(pointsOnTable == 18){
+				valid_shot = true;
+			}
+			break;
+		case 6:
+			if(pointsOnTable == 13){
+				valid_shot = true;
+			}
+			break;
+		case 7:
+			if(pointsOnTable == 7){
+				valid_shot = true;
+			}
+			break;
 	}
 	
-	pointsOnTable -= points;
+	if(points > 1 && !playerAtTable->get_on_red()){
+		valid_shot = true;
+	}
+	
+	if(valid_shot && reds == 0){
+		playerAtTable->ball_potted(points);
+		playerAtTable->set_on_red(false);
+		pointsOnTable -= points;
+	} else if (valid_shot){
+		playerAtTable->ball_potted(points);
+		pointsOnTable -= points;
+	}
 }
 
 
@@ -183,6 +218,7 @@ void SnookerGame::end_break()
 void SnookerGame::lost_red()
 {
     reds--;
+    pointsOnTable -= 8;
 }
 
 
