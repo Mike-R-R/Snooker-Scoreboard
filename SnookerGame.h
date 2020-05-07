@@ -9,7 +9,7 @@ class SnookerGame {
         SnookerGame();
         SnookerGame(bool, bool);
         ~SnookerGame();
-        SnookerGame& operator= (const SnookerGame& g)
+        SnookerGame& operator= (const SnookerGame& g);
         int remaining_reds();
         int remaining_points();
         void get_player_scores(int *);
@@ -30,8 +30,8 @@ class SnookerGame {
 		int reds;
 		int pointsOnTable;
 		
-		Player player_at_table();
-		Player player_not_at_table();
+		Player* player_at_table();
+		Player* player_not_at_table();
 };
 
 #endif
