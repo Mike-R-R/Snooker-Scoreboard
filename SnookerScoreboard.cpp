@@ -259,7 +259,7 @@ void SnookerScoreboard::player_at_table(int player, bool color){
  * Clears the shooting indicator over the player at the table
  *  to prepare for redrawing.
  */
-void clear_shooting_indicator(){
+void SnookerScoreboard::clear_shooting_indicator(){
 	DrawLine(canvas(), 0, 0, 13, 0, rgb_matrix::Color(0, 0, 0));
 	DrawLine(canvas(), 0, 1, 13, 1, rgb_matrix::Color(0, 0, 0));
 	DrawLine(canvas(), 0, 2, 13, 2, rgb_matrix::Color(0, 0, 0));
