@@ -12,7 +12,7 @@
 #define BLACK 7
 
 SnookerScoreboard::SnookerScoreboard(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m), game_running(true) {
-	theGame = SnookerGame();
+	//theGame = SnookerGame();
 }
 
 SnookerScoreboard::~SnookerScoreboard(){}
