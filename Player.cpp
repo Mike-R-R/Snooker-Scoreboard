@@ -8,7 +8,7 @@ Player::Player()
     score = 0;
     highBreak = 0;
     framesWon = 0;
-    onRed = True;
+    onRed = true;
     atTable = false;
 }
 
@@ -22,7 +22,7 @@ Player::Player(bool breaking)
     score = 0;
     highBreak = 0;
     framesWon = 0;
-    onRed = True;
+    onRed = true;
     atTable = breaking;
 }
 
