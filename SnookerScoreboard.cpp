@@ -334,7 +334,7 @@ void SnookerScoreboard::populate_board(){
 	
 	// Populate player points
 	int points[2];
-	theGame.getPlayerScores(points);
+	theGame->getPlayerScores(points);
 	int x = 1;
 	
 	if((points[0]/100)%10 != 0){
@@ -361,7 +361,7 @@ void SnookerScoreboard::populate_board(){
 	
 	// Populate player breaks
 	int breaks[2];
-	theGame.getPlayerBreaks(breaks);
+	theGame->getPlayerBreaks(breaks);
 	x = 1;
 	
 	if((breaks[0]/100)%10 != 0){
@@ -396,7 +396,7 @@ void SnookerScoreboard::populate_board(){
 	draw_number(reds%10, 6, 23, 128, 128, 128);
 	
 	// Populate points on table
-	int pointsOnTable = theGame.remainingPoints();
+	int pointsOnTable = theGame->remainingPoints();
 	
 	if((pointsOnTable/100)%10 != 0){
 		draw_number(1, 16, 23, 128, 128, 128);
