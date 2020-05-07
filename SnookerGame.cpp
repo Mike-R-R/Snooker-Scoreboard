@@ -102,6 +102,11 @@ void SnookerGame::potted_ball(int points){
 	Player* playerAtTable = player_at_table();
 
 	playerAtTable->ball_potted(points);
+	
+	if(points == 1){
+		reds--;
+	}
+	
 	pointsOnTable -= points;
 }
 
@@ -144,10 +149,12 @@ void SnookerGame::end_frame()
     if(scores[0] > scores[1])
     {
         player1->won_frame();
+        player2->lost_frame();
     }
     else
     {
         player2->won_frame();
+        player1->lost_frame();
     }
     
     reds = 15;

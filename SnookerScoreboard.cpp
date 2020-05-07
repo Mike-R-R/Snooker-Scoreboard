@@ -404,7 +404,7 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	if((points[1]/10)%10 != 0){
-		draw_number((points[0]/10)%10, 22, 3, 128, 128, 128);
+		draw_number((points[1]/10)%10, 22, 3, 128, 128, 128);
 	}
 	
 	draw_number(points[1]%10, 27, 3, 128, 128, 128);
@@ -430,7 +430,7 @@ void SnookerScoreboard::populate_board(){
 		draw_number(1, 19, 13, 128, 128, 128);
 	}
 	
-	if((breaks[1]/10)%10 != 0){
+	if((breaks[1]/10)%10 != 0 || (breaks[1]/100)%10 != 0){
 		draw_number((breaks[1]/10)%10, 22, 13, 128, 128, 128);
 	}
 	
@@ -452,7 +452,7 @@ void SnookerScoreboard::populate_board(){
 		draw_number(1, 16, 23, 128, 128, 128);
 	}
 	
-	if((points_on_table/10)%10 != 0){
+	if((points_on_table/10)%10 != 0 || (points_on_table/100)%10 != 0){
 		draw_number((points_on_table/10)%10, 19, 23, 128, 128, 128);
 	}
 	
