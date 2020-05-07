@@ -22,7 +22,7 @@ class SnookerGame {
         void end_frame();
         void end_break();
         void lost_red();
-        int player_at_table();
+        int shooting_player();
         bool player_shooting_red();
         
 	private:
