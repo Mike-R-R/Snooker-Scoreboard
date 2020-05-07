@@ -1,10 +1,10 @@
+
 #include "Player.h"
 
 /**
  * Default constructor for Player class
  */
-Player::Player()
-{
+Player::Player(){
     score = 0;
     currentBreak = 0;
     highBreak = 0;
@@ -18,8 +18,7 @@ Player::Player()
  * Constructor for Player where _shooting sets
  *  if the Player is currently at the table
  */
-Player::Player(bool breaking)
-{
+Player::Player(bool breaking){
     score = 0;
     currentBreak = 0;
     highBreak = 0;
@@ -32,68 +31,70 @@ Player::Player(bool breaking)
 /**
  * Default destructor for Player
  */
-Player::~Player()
-{}
-
-
-/**
- * Copy assignment for Player
- */
-Player& Player::operator= (const Player& temp)
-{
-    this->score = temp.score;
-    this->highBreak = temp.highBreak;
-    this->framesWon = temp.framesWon;
-    this->currentBreak = temp.currentBreak;
-    this->atTable = temp.atTable;
-    this->onRed = temp.onRed;
-    return *this;
-}
+Player::~Player(){}
 
 
 /**
  * Returns Player score
  */
-int Player::getScore(){return score;}
+int Player::get_score(){
+    return score;
+}
 
 
 /**
  * Returns frames won by Player
  */
-int Player::getFrameswon(){return framesWon;}
+int Player::get_frames_won(){
+    return framesWon;
+}
 
-
-/***
- * Returns the players current break
- */
-int Player::getCurrentBreak(){return currentBreak;}
 
 /**
+ * Returns the players current break
+ */
+int Player::get_current_break(){
+    return currentBreak;
+}
+
+/*
  * Returns Players highest break
  */
-int Player::getHighBreak(){return highBreak;}
+int Player::get_high_break(){
+    return highBreak;
+}
 
 
-/***
+/**
  * Returns whether the player is shooting a red or color
  */
-bool Player::getOnRed(){return onRed;}
+bool Player::get_on_red(){
+    return onRed;
+}
+
+
+/**
+ * Set whether the player is shooting a red or color
+ */
+bool Player::set_on_red(){
+    return onRed;
+}
 
 
 /**
  * Returns boolean representing whether the Player
  *  is currently at the table
  */
-bool Player::playerAtTable(){return atTable;}
+bool Player::get_player_at_table(){
+    return atTable;
+}
 
 
 /**
- * Adds input integer points to players score
+ * Player potted a ball.
  */
-void Player::addPoints(int points)
-{
-    score += points;
-    currentBreak += points;
+void ball_potted(int){
+    add_points(int);
     onRed = !onRed;
 }
 
@@ -101,22 +102,22 @@ void Player::addPoints(int points)
 /**
  * Ends the Players current break
  */
-void Player::endBreak()
+void Player::end_break()
 {
     atTable = false;
     if(currentBreak > highBreak)
         highBreak = currentBreak;
     currentBreak = 0;
-    onRed = true;
 }
 
 
 /**
  * Begins the Players break
  */
-void Player::beginBreak()
+void Player::begin_break()
 {
     atTable = true;
+    onRed = true;
 }
 
 
@@ -124,7 +125,7 @@ void Player::beginBreak()
  * This function adds a won frame to Player
  *  and resets Player for next frame
  */
-void Player::wonFrame()
+void Player::won_frame()
 {
     framesWon++;
     score = 0;
@@ -136,9 +137,18 @@ void Player::wonFrame()
 /**
  * This function resets player for next frame
  */
-void Player::lostFrame()
+void Player::lost_frame()
 {
     score = 0;
     currentBreak = 0;
     highBreak = 0;
+}
+
+
+/**
+ * Adds input integer points to players score
+ */
+void Player::add_points(int points){
+    score += points;
+    currentBreak += points;
 }

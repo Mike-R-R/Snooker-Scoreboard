@@ -1,87 +1,82 @@
+
 #include "SnookerGame.h"
 
-/*
+
+/**
  * Default constructor for a game of snooker
  */
-SnookerGame::SnookerGame()
-{
-    player1 = Player(true);
-    player2 = Player(false);
+SnookerGame::SnookerGame(){
+    player1 = new Player(true);
+    player2 = new Player(false);
     reds = 15;
     pointsOnTable = 147;
 }
 
-/*
+/**
  * Constructor for a game of snooker where p1 and p2 are
  *  true if the player is breaking and false if not.
  */
-SnookerGame::SnookerGame(bool p1, bool p2)
-{
-    player1 = Player(p1);
-    player2 = Player(p2);
+SnookerGame::SnookerGame(bool p1, bool p2){
+    player1 = new Player(p1);
+    player2 = new Player(p2);
     reds = 15;
     pointsOnTable = 147;
 }
 
-/*
+/**
  * Default destructor
  */
-SnookerGame::~SnookerGame()
-{}
+SnookerGame::~SnookerGame(){
 
-/*
+}
+
+/**
  * Copy assignment for a game of snooker
  */
-SnookerGame& SnookerGame::operator= (const SnookerGame& g) 
-{
+SnookerGame& SnookerGame::operator= (const SnookerGame& g) {
     this->player1 = g.player1;
     this->player2 = g.player2;
     this->reds = g.reds;
     return *this;
 }
 
-int SnookerGame::remainingReds()
-{
+int SnookerGame::remaining_reds(){
     return reds;
 }
 
 
-int SnookerGame::remainingPoints()
-{
+int SnookerGame::remaining_points(){
 	return pointsOnTable;
 }
 
-/*
+/**
  * Returns the players scores in an array where the
  *  first integer is player 1 and the second is
  *  player 2
  */
-void SnookerGame::getPlayerScores(int * arr)
-{
-    *arr = player1.getScore();
-    *(arr + 1) = player2.getScore();
+void SnookerGame::get_player_scores(int * scores){
+    *scores = player1->getScore();
+    *(scores + 1) = player2->getScore();
 }
 
 
-/*
+/**
  * Returns the players breaks in an array where the
  *  first integer is player 1 and the second is
  *  player 2
  */
-void SnookerGame::getPlayerBreaks(int * arr)
-{
-    *arr = player1.getCurrentBreak();
-    *(arr + 1) = player2.getCurrentBreak();
+void SnookerGame::get_player_breaks(int * breaks){
+    *breaks = player1.getCurrentBreak();
+    *(breaks + 1) = player2.getCurrentBreak();
 }
 
 
-/*
+/**
  * Returns the spread of points between players where
  *  the first integer is player 1 spread and the
  *  second is player 2
  */
-void SnookerGame::pointSpread(int * arr)
-{
+void SnookerGame::point_spread(int * arr){
     int scores[2];
     getPlayerScores(scores);
     
@@ -93,8 +88,7 @@ void SnookerGame::pointSpread(int * arr)
 /*
  * Add scored points to the player at the table
  */
-void SnookerGame::addPoints(int points)
-{
+void SnookerGame::add_points(int points){
     if(player1.playerAtTable())
     {
         player1.addPoints(points);
@@ -103,9 +97,17 @@ void SnookerGame::addPoints(int points)
     {
         player2.addPoints(points);
     }
-    
-    if(points == 1)
-        reds--;
+}
+
+
+/**
+ * Player potted a red
+ */
+void SnookerGame::potted_ball(points){
+	Player* playerAtTable = player_at_table();
+
+	playerAtTable.ball_potted(points);
+	pointsOnTable -= points;
 }
 
 
@@ -114,53 +116,43 @@ void SnookerGame::addPoints(int points)
  */
 void SnookerGame::foul(int points)
 {
-    if(!player1.playerAtTable())
-    {
-        player1.addPoints(points);
-        player2.endBreak();
-        player1.beginBreak();
-    }
-    else
-    {
-        player2.addPoints(points);
-        player1.endBreak();
-        player2.beginBreak();
-    }
+	Player* playerAtTable = player_at_table();
+	Player* playerNotAtTable = player_not_at_table();
+	
+	playerNotAtTable.add_points(points);
+	playerAtTable.end_break();
+	playerNotAtTable.begin_break();
 }
 
 
-/*
+/**
  * Shooting player made a free ball
  */
-void SnookerGame::freeBall()
+void SnookerGame::free_ball()
 {
-    if(!player1.playerAtTable())
-    {
-        player1.addPoints(1);
-    }
-    else
-    {
-        player2.addPoints(1);
-    }
+	Player* playerAtTable = player_at_table();
+
+    playerAtTable->add_points(1);
+    playerAtTable->set_on_red(false);
 }
 
 
-/*
+/**
  * This function awards a frame to the player with the
  *  highest score and resets for the next frame
  */
-void SnookerGame::endFrame()
+void SnookerGame::end_frame()
 {
     int scores[2];
-    getPlayerScores(scores);
+    get_player_scores(scores);
     
     if(scores[0] > scores[1])
     {
-        player1.wonFrame();
+        player1.won_frame();
     }
     else
     {
-        player2.wonFrame();
+        player2.won_frame();
     }
     
     reds = 15;
@@ -168,22 +160,17 @@ void SnookerGame::endFrame()
 }
 
 
-/*
+/**
  * This function ends the break of the player at the
  *  table and begins the next players break
  */
-void SnookerGame::endBreak()
+void SnookerGame::end_break()
 {
-    if(player1.playerAtTable())
-    {
-        player1.endBreak();
-        player2.beginBreak();
-    }
-    else
-    {
-        player1.beginBreak();
-        player2.endBreak();
-    }
+	Player* playerAtTable = player_at_table();
+	Player* playerNotAtTable = player_not_at_table();
+	
+	playerAtTable.end_break();
+	playerNotAtTable.begin_break();
 }
 
 
@@ -191,9 +178,58 @@ void SnookerGame::endBreak()
  * This function accounts for a red lost during the
  *  course of play
  */
-void SnookerGame::lostRed()
+void SnookerGame::lost_red()
 {
     reds--;
 }
 
+
+/**
+ * Gets the player at the table and returns a 1 for player
+ *  1 and a 2 for player 2. Takes a bool pointer as input
+ * 	and sets true if player is shooting red and false if
+ *  player is shooting color.
+ */
+int SnookerGame::player_at_table(bool * onRed){
+	if(player1->playerAtTable())
+    {
+		*onRed = player1.get_on_red();
+        return 1;
+    }
+    else
+    {
+		*onRed = player2.get_on_red();
+        return 2;
+    }
+}
+
+
+/**
+ * Private helper method to get player at table.
+ */
+Player SnookerGame::player_at_table(){
+	 if(player1->playerAtTable())
+    {
+        return player1;
+    }
+    else
+    {
+        return player2;
+    }
+}
+
+
+/**
+ * Private helper method to get player not at table.
+ */
+Player player_not_at_table(){
+	 if(player1->playerAtTable())
+    {
+        return player2;
+    }
+    else
+    {
+        return player1;
+    }
+}
 

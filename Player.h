@@ -1,30 +1,34 @@
+
 #ifndef PLAYER
 #define PLAYER
 
 class Player{
-    int score;
-    int framesWon;
-    int currentBreak;
-    int highBreak;
-    bool onRed;
-    bool atTable;
-    
     public:
         Player();
         Player(bool);
         ~Player();
-        Player& operator= (const Player&);
-        int getScore();
-        int getFrameswon();
-        int getCurrentBreak();
-        int getHighBreak();
-        bool getOnRed();
-        bool playerAtTable();
-        void addPoints(int);
-        void endBreak();
-        void beginBreak();
-        void wonFrame();
-        void lostFrame();
+        int get_score();
+        int get_frames_won();
+        int get_current_break();
+        int get_high_break();
+        bool get_on_red();
+        bool set_on_red();
+        bool get_player_at_table();
+        void ball_potted(int);
+        void free_ball_potted();
+        void end_break();
+        void begin_break();
+        void won_frame();
+        void lost_frame();
+        void add_points(int);
+    
+    private:
+        int score;
+        int framesWon;
+        int currentBreak;
+        int highBreak;
+        bool onRed;
+        bool atTable;
 };
 
 #endif
