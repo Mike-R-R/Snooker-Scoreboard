@@ -131,10 +131,11 @@ void SnookerGame::potted_ball(int points){
 			}
 			break;
 		default:
-			if(!playerAtTable->get_on_red() && pointsOnTable > 27){
-				color_shot_valid = true;
-			}
 			break;
+	}
+	
+	if(!playerAtTable->get_on_red() && pointsOnTable > 27){
+		color_shot_valid = true;
 	}
 	
 	if(color_shot_valid && reds == 0 && pointsOnTable <= 27){
