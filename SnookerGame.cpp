@@ -94,7 +94,7 @@ void SnookerGame::potted_ball(int points){
 	
 	switch(points){
 		case 1:
-			if(reds > 0){
+			if(reds > 0 && playerAtTable->get_on_red()){
 				playerAtTable->ball_potted(points);
 				reds--;
 				pointsOnTable -= 1;
@@ -130,13 +130,14 @@ void SnookerGame::potted_ball(int points){
 				color_shot_valid = true;
 			}
 			break;
+		default:
+			if(!playerAtTable->get_on_red() && pointsOnTable > 27){
+				color_shot_valid = true;
+			}
+			break;
 	}
 	
-	if(points > 1 && !playerAtTable->get_on_red() && pointsOnTable > 27){
-		color_shot_valid = true;
-	}
-	
-	if(color_shot_valid && reds == 0){
+	if(color_shot_valid && reds == 0 && pointsOnTable <= 27){
 		playerAtTable->ball_potted(points);
 		playerAtTable->set_on_red(false);
 		pointsOnTable -= points;
