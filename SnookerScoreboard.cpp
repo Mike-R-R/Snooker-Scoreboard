@@ -431,7 +431,7 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	if((breaks[1]/10)%10 != 0){
-		draw_number((breaks[0]/10)%10, 22, 13, 128, 128, 128);
+		draw_number((breaks[1]/10)%10, 22, 13, 128, 128, 128);
 	}
 	
 	draw_number(breaks[1]%10, 27, 13, 128, 128, 128);
