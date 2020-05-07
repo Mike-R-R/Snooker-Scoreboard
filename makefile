@@ -18,7 +18,7 @@ $(RGB_LIBRARY): FORCE
 main: main.o SnookerScoreboard.o SnookerGame.o Player.o $(RGB_LIBRARY)
 	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
 
-%.o: %.cpp
+%.o: %.cpp %.h
 	$(CXX) -I $(RGB_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
 clean:
