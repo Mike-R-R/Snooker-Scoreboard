@@ -90,7 +90,7 @@ void SnookerGame::point_spread(int * arr){
  */
 void SnookerGame::potted_ball(int points){
 	Player* playerAtTable = player_at_table();
-	bool valid_shot = false
+	bool valid_shot = false;
 	
 	switch(points){
 		case 1:
