@@ -278,7 +278,7 @@ void SnookerScoreboard::clear_shooting_indicator(){
 void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool onRed){
 	int remainingPoints = theGame->remaining_points();
 	
-	switch(points){
+	switch(remainingPoints){
 		case 27:
 			DrawLine(canvas(), x, y, x, y+2, rgb_matrix::Color(100, 0, 0));
 			DrawLine(canvas(), x+13, y, x+13, y+2, rgb_matrix::Color(100, 0, 0));
