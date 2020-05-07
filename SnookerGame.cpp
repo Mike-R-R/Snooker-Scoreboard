@@ -191,7 +191,7 @@ void SnookerGame::lost_red()
  *  player is shooting color.
  */
 int SnookerGame::player_at_table(bool * onRed){
-	if(player1->playerAtTable())
+	if(player1->get_player_at_table())
     {
 		*onRed = player1->get_on_red();
         return 1;
@@ -208,7 +208,7 @@ int SnookerGame::player_at_table(bool * onRed){
  * Private helper method to get player at table.
  */
 Player SnookerGame::player_at_table(){
-	 if(player1->player_at_table())
+	 if(player1->get_player_at_table())
     {
         return player1;
     }
@@ -223,7 +223,7 @@ Player SnookerGame::player_at_table(){
  * Private helper method to get player not at table.
  */
 Player player_not_at_table(){
-	 if(player1->player_at_table())
+	 if(player1->get_player_at_table())
     {
         return player2;
     }
