@@ -307,7 +307,7 @@ void SnookerScoreboard::update_board(){
 	populate_board();
 	clear_shooting_indicator();
 
-	int player = theGame->player_at_table();
+	int player = theGame->shooting_player();
 	
 	if(player == 1){
 		draw_shooting_indicator(0, 0, theGame->player_shooting_red());
