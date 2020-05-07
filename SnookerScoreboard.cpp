@@ -76,7 +76,7 @@ void SnookerScoreboard::Run(){
 					std::cout << int(key) << "\n" << std::endl;
 					break;
 			}
-			//update_board();
+			update_board();
 		}
 	}
 }
@@ -167,8 +167,8 @@ void SnookerScoreboard::setup_scoreboard(){
 	
 	//update_board();
 	
-	//int points[2];
-	//draw_number(points[0], 1, 3, 128, 128, 128);
+	int points[2];
+	draw_number(points[0], 1, 3, 128, 128, 128);
 }
 
 void SnookerScoreboard::draw_number(int number, int x, int y, int r, int g, int b){
