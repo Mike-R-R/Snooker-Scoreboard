@@ -89,14 +89,9 @@ void SnookerGame::point_spread(int * arr){
  * Add scored points to the player at the table
  */
 void SnookerGame::add_points(int points){
-    if(player1->player_at_table())
-    {
-        player1->add_points(points);
-    }
-    else
-    {
-        player2->add_points(points);
-    }
+    Player* player = player_at_table();
+    
+    player->add_points(points);
 }
 
 
