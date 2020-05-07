@@ -311,13 +311,13 @@ void SnookerScoreboard::clear_board(){
 	DrawLine(canvas(), 19, 19, 30, 19, rgb_matrix::Color(0, 0, 0));
 	
 	// Clear reds
-	DrawLine(canvas(), 3, 23, 12, 23, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 3, 24, 12, 24, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 3, 25, 12, 25, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 3, 26, 12, 26, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 3, 27, 12, 27, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 3, 28, 12, 28, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 3, 29, 12, 29, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 23, 9, 23, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 24, 9, 24, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 25, 9, 25, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 26, 9, 26, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 27, 9, 27, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 28, 9, 28, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 3, 29, 9, 29, rgb_matrix::Color(0, 0, 0));
 	
 	// Clear remaining points
 	DrawLine(canvas(), 16, 23, 27, 23, rgb_matrix::Color(0, 0, 0));
