@@ -68,7 +68,7 @@ void SnookerGame::getPlayerScores(int * arr)
  *  first integer is player 1 and the second is
  *  player 2
  */
-void SnookerGame::getPlayerBreaks(int *)
+void SnookerGame::getPlayerBreaks(int * arr)
 {
     *arr = player1.getCurrentBreak();
     *(arr + 1) = player2.getCurrentBreak();
