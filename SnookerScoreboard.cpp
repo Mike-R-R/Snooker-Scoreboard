@@ -334,27 +334,27 @@ void SnookerScoreboard::populate_board(){
 	int points[2] = theGame.getPlayerScores();
 	int x = 1;
 	
-	if((temp[0]/100)%10 != 0){
+	if((points[0]/100)%10 != 0){
 		draw_number(1, x, 3);
 		x += 3;
 	}
 	
-	if((temp[0]/10)%10 != 0 || x == 4){
-		draw_number((temp[0]/10)%10, x, 3);
+	if((points[0]/10)%10 != 0 || x == 4){
+		draw_number((points[0]/10)%10, x, 3);
 		x += 5
 	}
 	
-	draw_number(temp[0]%10, x, 3);
+	draw_number(points[0]%10, x, 3);
 	
-	if((temp[1]/100)%10 != 0){
+	if((points[1]/100)%10 != 0){
 		draw_number(1, 19, 3);
 	}
 	
-	if((temp[1]/10)%10 != 0){
-		draw_number((temp[0]/10)%10, 22, 3);
+	if((points[1]/10)%10 != 0){
+		draw_number((points[0]/10)%10, 22, 3);
 	}
 	
-	draw_number(temp[1]%10, 27, 3);
+	draw_number(points[1]%10, 27, 3);
 	
 	// Populate player breaks
 	int breaks[2] = theGame.getPlayerBreaks();
