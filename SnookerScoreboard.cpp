@@ -305,6 +305,8 @@ void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool color){
 void SnookerScoreboard::update_board(){
 	clear_board();
 	populate_board();
+	
+	/*
 	clear_shooting_indicator();
 	
 	bool *onRed;
@@ -315,6 +317,7 @@ void SnookerScoreboard::update_board(){
 	} else {
 		draw_shooting_indicator(18, 0, *onRed);
 	}
+	*/
 }
 
 
