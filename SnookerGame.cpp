@@ -55,8 +55,8 @@ int SnookerGame::remaining_points(){
  *  player 2
  */
 void SnookerGame::get_player_scores(int * scores){
-    *scores = player1->getScore();
-    *(scores + 1) = player2->getScore();
+    *scores = player1->get_score();
+    *(scores + 1) = player2->get_score();
 }
 
 
@@ -66,8 +66,8 @@ void SnookerGame::get_player_scores(int * scores){
  *  player 2
  */
 void SnookerGame::get_player_breaks(int * breaks){
-    *breaks = player1->getCurrentBreak();
-    *(breaks + 1) = player2->getCurrentBreak();
+    *breaks = player1->get_current_break();
+    *(breaks + 1) = player2->get_current_break();
 }
 
 
@@ -78,7 +78,7 @@ void SnookerGame::get_player_breaks(int * breaks){
  */
 void SnookerGame::point_spread(int * arr){
     int scores[2];
-    getPlayerScores(scores);
+    get_player_scores(scores);
     
     *arr = scores[0] - scores[1];
     *(arr + 1) = *arr * (-1);
@@ -89,13 +89,13 @@ void SnookerGame::point_spread(int * arr){
  * Add scored points to the player at the table
  */
 void SnookerGame::add_points(int points){
-    if(player1->playerAtTable())
+    if(player1->player_at_table())
     {
-        player1->addPoints(points);
+        player1->add_points(points);
     }
     else
     {
-        player2->addPoints(points);
+        player2->add_points(points);
     }
 }
 
@@ -208,7 +208,7 @@ int SnookerGame::player_at_table(bool * onRed){
  * Private helper method to get player at table.
  */
 Player SnookerGame::player_at_table(){
-	 if(player1->playerAtTable())
+	 if(player1->player_at_table())
     {
         return player1;
     }
@@ -223,7 +223,7 @@ Player SnookerGame::player_at_table(){
  * Private helper method to get player not at table.
  */
 Player player_not_at_table(){
-	 if(player1->playerAtTable())
+	 if(player1->player_at_table())
     {
         return player2;
     }
