@@ -103,7 +103,7 @@ void SnookerGame::add_points(int points){
 /**
  * Player potted a red
  */
-void SnookerGame::potted_ball(points){
+void SnookerGame::potted_ball(int points){
 	Player* playerAtTable = player_at_table();
 
 	playerAtTable.ball_potted(points);
