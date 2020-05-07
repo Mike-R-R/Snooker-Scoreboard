@@ -165,11 +165,7 @@ void SnookerScoreboard::setup_scoreboard(){
 	draw_number(5, 6, 23, 128, 128, 128);
 	*/
 	
-	//update_board();
-	
-	int points[2];
-	theGame->getPlayerScores(points);
-	draw_number(points[0], 1, 3, 128, 128, 128);
+	update_board();
 }
 
 void SnookerScoreboard::draw_number(int number, int x, int y, int r, int g, int b){
@@ -275,7 +271,8 @@ void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool color){
 }
 
 void SnookerScoreboard::update_board(){
-	
+	clear_board();
+	update_board();
 }
 
 void SnookerScoreboard::clear_board(){
@@ -332,7 +329,7 @@ void SnookerScoreboard::clear_board(){
 	DrawLine(canvas(), 16, 29, 27, 29, rgb_matrix::Color(0, 0, 0));
 }
 
-/*
+
 void SnookerScoreboard::populate_board(){
 	
 	// Populate player points
@@ -411,7 +408,7 @@ void SnookerScoreboard::populate_board(){
 	
 	draw_number(pointsOnTable%10, 24, 23, 128, 128, 128);
 }
-*/
+
 
 /***
  * Private helper method that detects and retrieves keyboard input
