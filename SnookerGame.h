@@ -9,6 +9,7 @@ class SnookerGame {
         SnookerGame();
         SnookerGame(bool, bool);
         ~SnookerGame();
+        SnookerGame& SnookerGame::operator= (const SnookerGame& g)
         int remaining_reds();
         int remaining_points();
         void get_player_scores(int *);
