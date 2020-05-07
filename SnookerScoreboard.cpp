@@ -13,7 +13,7 @@
 
 SnookerScoreboard::SnookerScoreboard(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m) {
 	game_running = true;
-	theGame = &SnookerGame();
+	theGame = new SnookerGame();
 }
 
 SnookerScoreboard::~SnookerScoreboard(){}
