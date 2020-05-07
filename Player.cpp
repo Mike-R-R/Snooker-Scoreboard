@@ -76,7 +76,7 @@ bool Player::get_on_red(){
 /**
  * Set whether the player is shooting a red or color
  */
-bool Player::set_on_red(bool red){
+void Player::set_on_red(bool red){
     onRed = red;
 }
 

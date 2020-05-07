@@ -12,7 +12,7 @@ class Player{
         int get_current_break();
         int get_high_break();
         bool get_on_red();
-        bool set_on_red(bool);
+        void set_on_red(bool);
         bool get_player_at_table();
         void ball_potted(int);
         void free_ball_potted();
