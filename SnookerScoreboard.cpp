@@ -391,7 +391,7 @@ void SnookerScoreboard::populate_board(){
 	int reds = theGame->remainingReds();
 	
 	if((reds/10)%10 != 0){
-		draw_number(1, 3, 13, 128, 128, 128);
+		draw_number(1, 3, 23, 128, 128, 128);
 	}
 	
 	draw_number(reds%10, 6, 23, 128, 128, 128);
