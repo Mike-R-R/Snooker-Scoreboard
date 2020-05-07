@@ -76,7 +76,8 @@ void SnookerScoreboard::Run(){
 					std::cout << int(key) << "\n" << std::endl;
 					break;
 			}
-			update_board();
+			std::cout << "Print something." << std::endl;
+			//update_board();
 		}
 	}
 }
