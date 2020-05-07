@@ -72,7 +72,7 @@ void SnookerGame::getPlayerBreaks(int *)
 {
     *arr = player1.getCurrentBreak();
     *(arr + 1) = player2.getCurrentBreak();
-}}
+}
 
 
 /*
