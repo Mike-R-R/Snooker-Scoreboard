@@ -66,8 +66,8 @@ void SnookerGame::get_player_scores(int * scores){
  *  player 2
  */
 void SnookerGame::get_player_breaks(int * breaks){
-    *breaks = player1.getCurrentBreak();
-    *(breaks + 1) = player2.getCurrentBreak();
+    *breaks = player1->getCurrentBreak();
+    *(breaks + 1) = player2->getCurrentBreak();
 }
 
 
@@ -89,13 +89,13 @@ void SnookerGame::point_spread(int * arr){
  * Add scored points to the player at the table
  */
 void SnookerGame::add_points(int points){
-    if(player1.playerAtTable())
+    if(player1->playerAtTable())
     {
-        player1.addPoints(points);
+        player1->addPoints(points);
     }
     else
     {
-        player2.addPoints(points);
+        player2->addPoints(points);
     }
 }
 
@@ -106,7 +106,7 @@ void SnookerGame::add_points(int points){
 void SnookerGame::potted_ball(int points){
 	Player* playerAtTable = player_at_table();
 
-	playerAtTable.ball_potted(points);
+	playerAtTable->ball_potted(points);
 	pointsOnTable -= points;
 }
 
@@ -119,9 +119,9 @@ void SnookerGame::foul(int points)
 	Player* playerAtTable = player_at_table();
 	Player* playerNotAtTable = player_not_at_table();
 	
-	playerNotAtTable.add_points(points);
-	playerAtTable.end_break();
-	playerNotAtTable.begin_break();
+	playerNotAtTable->add_points(points);
+	playerAtTable->end_break();
+	playerNotAtTable->begin_break();
 }
 
 
@@ -148,11 +148,11 @@ void SnookerGame::end_frame()
     
     if(scores[0] > scores[1])
     {
-        player1.won_frame();
+        player1->won_frame();
     }
     else
     {
-        player2.won_frame();
+        player2->won_frame();
     }
     
     reds = 15;
@@ -169,8 +169,8 @@ void SnookerGame::end_break()
 	Player* playerAtTable = player_at_table();
 	Player* playerNotAtTable = player_not_at_table();
 	
-	playerAtTable.end_break();
-	playerNotAtTable.begin_break();
+	playerAtTable->end_break();
+	playerNotAtTable->begin_break();
 }
 
 
@@ -193,12 +193,12 @@ void SnookerGame::lost_red()
 int SnookerGame::player_at_table(bool * onRed){
 	if(player1->playerAtTable())
     {
-		*onRed = player1.get_on_red();
+		*onRed = player1->get_on_red();
         return 1;
     }
     else
     {
-		*onRed = player2.get_on_red();
+		*onRed = player2->get_on_red();
         return 2;
     }
 }
