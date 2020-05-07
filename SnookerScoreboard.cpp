@@ -11,8 +11,8 @@
 #define PINK 6
 #define BLACK 7
 
-SnookerScoreboard::SnookerScoreboard(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m), game_running(true), theGame() {
-	
+SnookerScoreboard::SnookerScoreboard(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m), game_running(true) {
+	theGame = SnookerGame();
 }
 
 SnookerScoreboard::~SnookerScoreboard(){}
@@ -164,7 +164,10 @@ void SnookerScoreboard::setup_scoreboard(){
 	draw_number(5, 6, 23, 128, 128, 128);
 	*/
 	
-	update_board();
+	//update_board();
+	
+	int points[2];
+	draw_number(points[0], 1, 3, 128, 128, 128);
 }
 
 void SnookerScoreboard::draw_number(int number, int x, int y, int r, int g, int b){
