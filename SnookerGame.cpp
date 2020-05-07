@@ -217,7 +217,7 @@ Player* SnookerGame::player_at_table(){
 /**
  * Private helper method to get player not at table.
  */
-Player* player_not_at_table(){
+Player* SnookerGame::player_not_at_table(){
 	 if(player1->get_player_at_table())
     {
         return player2;
