@@ -306,6 +306,7 @@ void SnookerScoreboard::update_board(){
 	clear_board();
 	populate_board();
 	
+	
 	/*
 	clear_shooting_indicator();
 	

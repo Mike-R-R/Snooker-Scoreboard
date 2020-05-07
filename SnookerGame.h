@@ -22,7 +22,8 @@ class SnookerGame {
         void end_frame();
         void end_break();
         void lost_red();
-        int player_at_table(bool *);
+        int player_at_table();
+        bool player_shooting_red();
         
 	private:
 		Player* player1;

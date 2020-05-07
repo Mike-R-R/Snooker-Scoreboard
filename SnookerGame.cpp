@@ -181,21 +181,22 @@ void SnookerGame::lost_red()
 
 /**
  * Gets the player at the table and returns a 1 for player
- *  1 and a 2 for player 2. Takes a bool pointer as input
- * 	and sets true if player is shooting red and false if
- *  player is shooting color.
+ *  1 and a 2 for player 2.
  */
-int SnookerGame::player_at_table(bool * onRed){
+int SnookerGame::shooting_player(){
 	if(player1->get_player_at_table())
     {
-		*onRed = player1->get_on_red();
         return 1;
     }
     else
     {
-		*onRed = player2->get_on_red();
         return 2;
     }
+}
+
+
+bool SnookerGame::player_shooting_red(){
+	return player_at_table()->get_on_red();
 }
 
 
