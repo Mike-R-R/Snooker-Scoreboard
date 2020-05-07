@@ -38,7 +38,7 @@ void SnookerScoreboard::Run(){
 					break;
 				case 10:
 					// Handle enter key press
-					//theGame.endBreak();
+					theGame.endBreak();
 					break;
 				case 42:
 					// Handle '*' key press
@@ -48,28 +48,28 @@ void SnookerScoreboard::Run(){
 					break;
 				case 45:
 					// Handle '-' key press
-					//theGame.lostRed();
+					theGame.lostRed();
 					break;
 				case 49:
-					//theGame.addPoints(RED);
+					theGame.addPoints(RED);
 					break;
 				case 50:
-					//theGame.addPoints(YELLOW);
+					theGame.addPoints(YELLOW);
 					break;
 				case 51:
-					//theGame.addPoints(GREEN);
+					theGame.addPoints(GREEN);
 					break;
 				case 52:
-					//theGame.addPoints(BROWN);
+					theGame.addPoints(BROWN);
 					break;
 				case 53:
-					//theGame.addPoints(BLUE);
+					theGame.addPoints(BLUE);
 					break;
 				case 54:
-					//theGame.addPoints(PINK);
+					theGame.addPoints(PINK);
 					break;
 				case 55:
-					//theGame.addPoints(BLACK);
+					theGame.addPoints(BLACK);
 					break;
 				default:
 					std::cout << key << std::endl;
@@ -77,7 +77,7 @@ void SnookerScoreboard::Run(){
 					break;
 			}
 			//std::cout << "Print something." << std::endl;
-			//update_board();
+			update_board();
 		}
 	}
 }
