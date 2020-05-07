@@ -273,8 +273,8 @@ void SnookerScoreboard::clear_shooting_indicator(){
  * Draws the shooting indicator over the player at the table
  *  based on whether player is shooting reds or colors.
  */
-void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool color){
-	if(color){
+void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool onRed){
+	if(!onRed){
 		DrawLine(canvas(), x, y, x, y+2, rgb_matrix::Color(100, 0, 0));
 		DrawLine(canvas(), x+13, y, x+13, y+2, rgb_matrix::Color(100, 0, 0));
 		DrawLine(canvas(), x+1, y, x+1, y+1, rgb_matrix::Color(170, 170, 0));
