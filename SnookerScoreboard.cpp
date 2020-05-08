@@ -525,12 +525,12 @@ void SnookerScoreboard::draw_left_aligned(int value, int x, int y, int r, int g,
 	
 	// Draw tens place if present
 	if((value/10)%10 != 0 || x == 4){
-		draw_number((points[0]/10)%10, x, y, 128, 128, 128);
+		draw_number((value/10)%10, x, y, 128, 128, 128);
 		x += 5;
 	}
 	
 	// Draw ones place
-	draw_number(points[0]%10, x, y, 128, 128, 128);
+	draw_number(value%10, x, y, 128, 128, 128);
 }
 
 
