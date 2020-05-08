@@ -256,20 +256,6 @@ void SnookerScoreboard::player_at_table(int player, bool color){
 
 
 /**
- * Clears the shooting indicator over the player at the table
- *  to prepare for redrawing.
- */
-void SnookerScoreboard::clear_shooting_indicator(){
-	DrawLine(canvas(), 0, 0, 13, 0, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 0, 1, 13, 1, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 0, 2, 13, 2, rgb_matrix::Color(0, 0, 0));
-	
-	DrawLine(canvas(), 18, 0, 31, 0, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 18, 1, 31, 1, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 18, 2, 31, 2, rgb_matrix::Color(0, 0, 0));
-}
-
-/**
  * Draws the shooting indicator over the player at the table
  *  based on whether player is shooting reds or colors.
  */
@@ -349,7 +335,6 @@ void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool onRed){
 void SnookerScoreboard::update_board(){
 	clear_board();
 	populate_board();
-	clear_shooting_indicator();
 
 	int player = theGame->shooting_player();
 	
@@ -366,22 +351,34 @@ void SnookerScoreboard::update_board(){
  *  values from the board.
  */
 void SnookerScoreboard::clear_board(){
-	// Clear points
-	DrawLine(canvas(), 1, 3, 12, 3, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 1, 4, 12, 4, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 1, 5, 12, 5, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 1, 6, 12, 6, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 1, 7, 12, 7, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 1, 8, 12, 8, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 1, 9, 12, 9, rgb_matrix::Color(0, 0, 0));
 	
-	DrawLine(canvas(), 19, 3, 30, 3, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 19, 4, 30, 4, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 19, 5, 30, 5, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 19, 6, 30, 6, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 19, 7, 30, 7, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 19, 8, 30, 8, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 19, 9, 30, 9, rgb_matrix::Color(0, 0, 0));
+	// Clear shoting indicator
+	DrawLine(canvas(), 0, 0, 13, 0, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 1, 13, 1, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 2, 13, 2, rgb_matrix::Color(0, 0, 0));
+	
+	DrawLine(canvas(), 18, 0, 31, 0, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 1, 31, 1, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 2, 31, 2, rgb_matrix::Color(0, 0, 0));
+	
+	// Clear points
+	DrawLine(canvas(), 0, 3, 13, 3, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 4, 13, 4, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 5, 13, 5, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 6, 13, 6, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 7, 13, 7, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 8, 13, 8, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 9, 13, 9, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 10, 13, 10, rgb_matrix::Color(0, 0, 0));
+	
+	DrawLine(canvas(), 18, 3, 31, 3, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 4, 31, 4, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 5, 31, 5, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 6, 31, 6, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 7, 31, 7, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 8, 31, 8, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 9, 31, 9, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 18, 10, 31, 10, rgb_matrix::Color(0, 0, 0));
 	
 	// Clear break
 	DrawLine(canvas(), 1, 13, 12, 13, rgb_matrix::Color(0, 0, 0));
@@ -429,10 +426,22 @@ void SnookerScoreboard::populate_board(){
 	// Populate player points
 	int points[2];
 	theGame->get_player_scores(points);
+	int pointDiff = theGame->point_spread();
+	int remainingPoints = theGame->remaining_points();
 	
-	draw_left_aligned(points[0], 1, 3, 128, 128, 128);
-		
-	draw_right_aligned(points[1], 19, 3, 128, 128, 128);
+	if(pointDiff >= 0 && pointDiff > remainingPoints){
+		// Draw player 2 inverted
+		draw_left_aligned(points[0], 1, 3, 128, 128, 128);
+		draw_right_inverted(points[1]);
+	} else if((pointDiff*-1) > remainingPoints){
+		// Draw player 1 inverted
+		draw_left_inverted(points[0]);
+		draw_right_aligned(points[1], 19, 3, 128, 128, 128);
+	} else {
+	
+		draw_left_aligned(points[0], 1, 3, 128, 128, 128);
+		draw_right_aligned(points[1], 19, 3, 128, 128, 128);
+	}
 	
 	
 	// Populate player breaks
@@ -440,7 +449,6 @@ void SnookerScoreboard::populate_board(){
 	theGame->get_player_breaks(breaks);
 
 	draw_left_aligned(breaks[0], 1, 13, 128, 128, 128);
-	
 	draw_right_aligned(breaks[1], 19, 13, 128, 128, 128);
 	
 	
@@ -500,6 +508,43 @@ void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g
 	
 	// Draw ones place
 	draw_number(value%10, x+8, y, r, g, b);
+}
+
+
+/**
+ * Draws the numbers inverted to indicated player 1 is
+ *  more points behind than remain on the table
+ */
+void draw_left_inverted(int value){
+	DrawLine(canvas(), 0, 3, 13, 3, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 0, 4, 13, 4, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 0, 5, 13, 5, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 0, 6, 13, 6, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 0, 7, 13, 7, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 0, 8, 13, 8, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 0, 9, 13, 9, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 0, 10, 13, 10, rgb_matrix::Color(128, 128, 128));
+
+	draw_left_aligned(points[0], 1, 3, 0, 0, 0);
+}
+
+/**
+ * Draws the numbers inverted to indicated player 2 is
+ *  more points behind than remain on the table
+ */
+void draw_right_inverted(int value){
+	DrawLine(canvas(), 19, 2, 30, 2, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 18, 3, 31, 3, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 18, 4, 31, 4, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 18, 5, 31, 5, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 18, 6, 31, 6, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 18, 7, 31, 7, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 18, 8, 31, 8, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 18, 9, 31, 9, rgb_matrix::Color(128, 128, 128));
+	DrawLine(canvas(), 18, 10, 31, 10, rgb_matrix::Color(128, 128, 128));
+	
+			
+	draw_right_aligned(points[1], 19, 3, 0, 0, 0);
 }
 
 /**

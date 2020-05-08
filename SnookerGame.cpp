@@ -75,16 +75,16 @@ void SnookerGame::get_player_breaks(int * breaks){
 
 
 /**
- * Returns the spread of points between players where
- *  the first integer is player 1 spread and the
- *  second is player 2
+ * Returns the difference in points between the two
+ *  players where a positive result indicates player
+ *  1 is winning and a negative indicates player
+ *  2 is in the lead.
  */
-void SnookerGame::point_spread(int * arr){
+int SnookerGame::point_spread(){
     int scores[2];
     get_player_scores(scores);
     
-    *arr = scores[0] - scores[1];
-    *(arr + 1) = *arr * (-1);
+    return scores[0] - scores[1];
 }
 
 
