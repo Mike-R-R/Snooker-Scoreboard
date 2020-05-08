@@ -29,6 +29,7 @@ class SnookerGame {
 		Player* player2;
 		int reds;
 		int pointsOnTable;
+		bool freeBall;
 		
 		Player* player_at_table();
 		Player* player_not_at_table();

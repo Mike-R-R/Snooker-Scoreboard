@@ -10,6 +10,7 @@ SnookerGame::SnookerGame(){
     player2 = new Player(false);
     reds = 15;
     pointsOnTable = 147;
+    freeBall = false;
 }
 
 /**
@@ -21,6 +22,7 @@ SnookerGame::SnookerGame(bool p1, bool p2){
     player2 = new Player(p2);
     reds = 15;
     pointsOnTable = 147;
+    freeBall = false;
 }
 
 /**
@@ -37,6 +39,7 @@ SnookerGame& SnookerGame::operator= (const SnookerGame& g) {
     this->player1 = g.player1;
     this->player2 = g.player2;
     this->reds = g.reds;
+    this->freeBall = g.freeBall;
     return *this;
 }
 
@@ -92,59 +95,68 @@ void SnookerGame::potted_ball(int points){
 	Player* playerAtTable = player_at_table();
 	bool color_shot_valid = false;
 	
-	switch(points){
-		case 1:
-			if(reds > 0 && playerAtTable->get_on_red()){
-				playerAtTable->ball_potted(points);
-				reds--;
-				pointsOnTable -= 1;
-			}
-			break;
-		case 2:
-			if(pointsOnTable == 27){
-				color_shot_valid = true;
-			}
-			break;
-		case 3:
-			if(pointsOnTable == 25){
-				color_shot_valid = true;
-			}
-			break;
-		case 4:
-			if(pointsOnTable == 22){
-				color_shot_valid = true;
-			}
-			break;
-		case 5:
-			if(pointsOnTable == 18){
-				color_shot_valid = true;
-			}
-			break;
-		case 6:
-			if(pointsOnTable == 13){
-				color_shot_valid = true;
-			}
-			break;
-		case 7:
-			if(pointsOnTable == 7){
-				color_shot_valid = true;
-			}
-			break;
-		default:
-			break;
-	}
-	
-	if(points > 1 && !playerAtTable->get_on_red() && pointsOnTable > 27){
-		color_shot_valid = true;
-	}
-	
-	if(color_shot_valid && reds == 0 && pointsOnTable <= 27){
-		playerAtTable->ball_potted(points);
-		playerAtTable->set_on_red(false);
-		pointsOnTable -= points;
-	} else if (color_shot_valid){
-		playerAtTable->ball_potted(points);
-		pointsOnTable -= 7;
+	if(!freeBall){
+		switch(points){
+			case 1:
+				if(reds > 0 && playerAtTable->get_on_red()){
+					playerAtTable->ball_potted(points);
+					reds--;
+					pointsOnTable -= 1;
+				}
+				break;
+			case 2:
+				if(pointsOnTable == 27){
+					color_shot_valid = true;
+				}
+				break;
+			case 3:
+				if(pointsOnTable == 25){
+					color_shot_valid = true;
+				}
+				break;
+			case 4:
+				if(pointsOnTable == 22){
+					color_shot_valid = true;
+				}
+				break;
+			case 5:
+				if(pointsOnTable == 18){
+					color_shot_valid = true;
+				}
+				break;
+			case 6:
+				if(pointsOnTable == 13){
+					color_shot_valid = true;
+				}
+				break;
+			case 7:
+				if(pointsOnTable == 7){
+					color_shot_valid = true;
+				}
+				break;
+			default:
+				break;
+		}
+		
+		if(points > 1 && !playerAtTable->get_on_red() && pointsOnTable > 27){
+			color_shot_valid = true;
+		}
+		
+		if(color_shot_valid && reds == 0 && pointsOnTable <= 27){
+			playerAtTable->ball_potted(points);
+			playerAtTable->set_on_red(false);
+			pointsOnTable -= points;
+		} else if (color_shot_valid){
+			playerAtTable->ball_potted(points);
+			pointsOnTable -= 7;
+		}
+		
+	} else{
+		if(points > 1){
+			playerAtTable->ball_potted(points);
+			playerAtTable->set_on_red(false);
+			freeBall = false;
+		}
 	}
 }
 
@@ -172,6 +184,7 @@ void SnookerGame::free_ball()
 
     playerAtTable->add_points(1);
     playerAtTable->set_on_red(false);
+    freeBall = true;
 }
 
 
@@ -208,6 +221,10 @@ void SnookerGame::end_break()
 {
 	Player* playerAtTable = player_at_table();
 	Player* playerNotAtTable = player_not_at_table();
+	
+	if(!playerAtTable->get_on_red() && !freeBall){
+		pointsOnTable -= 7;
+	}
 	
 	playerAtTable->end_break();
 	playerNotAtTable->begin_break();
