@@ -560,7 +560,7 @@ void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g
 	}
 	
 	// Draw ones place
-	draw_number(points[1]%10, x+8, y, r, g, b);
+	draw_number(value%10, x+8, y, r, g, b);
 }
 
 /**
