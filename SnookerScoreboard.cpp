@@ -429,94 +429,33 @@ void SnookerScoreboard::populate_board(){
 	// Populate player points
 	int points[2];
 	theGame->get_player_scores(points);
-
-	/*
-	if((points[0]/100)%10 != 0){
-		draw_number(1, x, 3, 128, 128, 128);
-		x += 3;
-	}
-	
-	if((points[0]/10)%10 != 0 || x == 4){
-		draw_number((points[0]/10)%10, x, 3, 128, 128, 128);
-		x += 5;
-	}
-	
-	draw_number(points[0]%10, x, 3, 128, 128, 128);
-	
-	if((points[1]/100)%10 != 0){
-		draw_number(1, 19, 3, 128, 128, 128);
-	}
-	
-	if((points[1]/10)%10 != 0 || (points[1]/100)%10 != 0){
-		draw_number((points[1]/10)%10, 22, 3, 128, 128, 128);
-	}
-	
-	draw_number(points[1]%10, 27, 3, 128, 128, 128);
-	*/
 	
 	draw_left_aligned(points[0], 1, 3, 128, 128, 128);
 		
 	draw_right_aligned(points[1], 19, 3, 128, 128, 128);
 	
+	
 	// Populate player breaks
 	int breaks[2];
 	theGame->get_player_breaks(breaks);
-	
-	/*
-	if((breaks[0]/100)%10 != 0){
-		draw_number(1, x, 13, 128, 128, 128);
-		x += 3;
-	}
-	
-	if((breaks[0]/10)%10 != 0 || x == 4){
-		draw_number((breaks[0]/10)%10, x, 13, 128, 128, 128);
-		x += 5;
-	}
-	
-	draw_number(breaks[0]%10, x, 13, 128, 128, 128);
-	
-	if((breaks[1]/100)%10 != 0){
-		draw_number(1, 19, 13, 128, 128, 128);
-	}
-	
-	if((breaks[1]/10)%10 != 0 || (breaks[1]/100)%10 != 0){
-		draw_number((breaks[1]/10)%10, 22, 13, 128, 128, 128);
-	}
-	
-	draw_number(breaks[1]%10, 27, 13, 128, 128, 128);
-	*/
 
 	draw_left_aligned(breaks[0], 1, 13, 128, 128, 128);
 	
 	draw_right_aligned(breaks[1], 19, 13, 128, 128, 128);
 	
+	
 	// Popluate reds on table
 	int reds = theGame->remaining_reds();
 	
-	/*
 	if((reds/10)%10 != 0){
 		draw_number(1, 3, 23, 128, 128, 128);
 	}
 	
 	draw_number(reds%10, 6, 23, 128, 128, 128);
-	*/
 	
-	draw_right_aligned(reds, 0, 23, 128, 128, 128);
 	
 	// Populate points on table
 	int pointsOnTable = theGame->remaining_points();
-	
-	/*
-	if((points_on_table/100)%10 != 0){
-		draw_number(1, 16, 23, 128, 128, 128);
-	}
-	
-	if((points_on_table/10)%10 != 0 || (points_on_table/100)%10 != 0){
-		draw_number((points_on_table/10)%10, 19, 23, 128, 128, 128);
-	}
-	
-	draw_number(points_on_table%10, 24, 23, 128, 128, 128);
-	*/
 	
 	draw_right_aligned(pointsOnTable, 16, 23, 128, 128, 128);
 }
