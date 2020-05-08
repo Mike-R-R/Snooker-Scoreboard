@@ -429,7 +429,6 @@ void SnookerScoreboard::populate_board(){
 	// Populate player points
 	int points[2];
 	theGame->get_player_scores(points);
-	int x = 1;
 
 	/*
 	if((points[0]/100)%10 != 0){
@@ -443,9 +442,6 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	draw_number(points[0]%10, x, 3, 128, 128, 128);
-	*/
-	
-	draw_left_aligned(points[0], 1, 3, 128, 128, 128);
 	
 	if((points[1]/100)%10 != 0){
 		draw_number(1, 19, 3, 128, 128, 128);
@@ -456,11 +452,15 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	draw_number(points[1]%10, 27, 3, 128, 128, 128);
+	*/
+	
+	draw_left_aligned(points[0], 1, 3, 128, 128, 128);
+		
+	draw_right_aligned(points[1], 19, 3, 128, 128, 128);
 	
 	// Populate player breaks
 	int breaks[2];
 	theGame->get_player_breaks(breaks);
-	x = 1;
 	
 	/*
 	if((breaks[0]/100)%10 != 0){
@@ -474,9 +474,6 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	draw_number(breaks[0]%10, x, 13, 128, 128, 128);
-	*/
-	
-	draw_left_aligned(breaks[0], 1, 13, 128, 128, 128);
 	
 	if((breaks[1]/100)%10 != 0){
 		draw_number(1, 19, 13, 128, 128, 128);
@@ -487,19 +484,29 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	draw_number(breaks[1]%10, 27, 13, 128, 128, 128);
+	*/
+
+	draw_left_aligned(breaks[0], 1, 13, 128, 128, 128);
+	
+	draw_right_aligned(breaks[1], 19, 13, 128, 128, 128);
 	
 	// Popluate reds on table
 	int reds = theGame->remaining_reds();
 	
+	/*
 	if((reds/10)%10 != 0){
 		draw_number(1, 3, 23, 128, 128, 128);
 	}
 	
 	draw_number(reds%10, 6, 23, 128, 128, 128);
+	*/
+	
+	draw_right_aligned(reds, 0, 23, 128, 128, 128);
 	
 	// Populate points on table
-	int points_on_table = theGame->remaining_points();
+	int pointsOnTable = theGame->remaining_points();
 	
+	/*
 	if((points_on_table/100)%10 != 0){
 		draw_number(1, 16, 23, 128, 128, 128);
 	}
@@ -509,6 +516,9 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	draw_number(points_on_table%10, 24, 23, 128, 128, 128);
+	*/
+	
+	draw_right_aligned(pointsOnTable, 16, 23, 128, 128, 128);
 }
 
 
@@ -525,12 +535,12 @@ void SnookerScoreboard::draw_left_aligned(int value, int x, int y, int r, int g,
 	
 	// Draw tens place if present
 	if((value/10)%10 != 0 || x == 4){
-		draw_number((value/10)%10, x, y, 128, 128, 128);
+		draw_number((value/10)%10, x, y, r, g, b);
 		x += 5;
 	}
 	
 	// Draw ones place
-	draw_number(value%10, x, y, 128, 128, 128);
+	draw_number(value%10, x, y, r, g, b);
 }
 
 
@@ -539,6 +549,18 @@ void SnookerScoreboard::draw_left_aligned(int value, int x, int y, int r, int g,
  */
 void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g, int b){
 	
+	// Draw hundreds place if present
+	if((value/100)%10 != 0){
+		draw_number(1, x, y, r, g, b);
+	}
+	
+	// Draw tens place if present
+	if((value/10)%10 != 0 || value/100)%10 != 0){
+		draw_number((value/10)%10, x+3, y, r, g, b);
+	}
+	
+	// Draw ones place
+	draw_number(points[1]%10, x+8, y, r, g, b);
 }
 
 /**
