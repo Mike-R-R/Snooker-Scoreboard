@@ -430,7 +430,8 @@ void SnookerScoreboard::populate_board(){
 	int points[2];
 	theGame->get_player_scores(points);
 	int x = 1;
-	
+
+	/*
 	if((points[0]/100)%10 != 0){
 		draw_number(1, x, 3, 128, 128, 128);
 		x += 3;
@@ -442,6 +443,9 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	draw_number(points[0]%10, x, 3, 128, 128, 128);
+	*/
+	
+	draw_left_aligned(points[0], 1, 3, 128, 128, 128);
 	
 	if((points[1]/100)%10 != 0){
 		draw_number(1, 19, 3, 128, 128, 128);
@@ -458,6 +462,7 @@ void SnookerScoreboard::populate_board(){
 	theGame->get_player_breaks(breaks);
 	x = 1;
 	
+	/*
 	if((breaks[0]/100)%10 != 0){
 		draw_number(1, x, 13, 128, 128, 128);
 		x += 3;
@@ -469,6 +474,9 @@ void SnookerScoreboard::populate_board(){
 	}
 	
 	draw_number(breaks[0]%10, x, 13, 128, 128, 128);
+	*/
+	
+	draw_left_aligned(breaks[0], 1, 13, 128, 128, 128);
 	
 	if((breaks[1]/100)%10 != 0){
 		draw_number(1, 19, 13, 128, 128, 128);
@@ -503,6 +511,35 @@ void SnookerScoreboard::populate_board(){
 	draw_number(points_on_table%10, 24, 23, 128, 128, 128);
 }
 
+
+/**
+ * Draws a value left aligned.
+ */
+void SnookerScoreboard::draw_left_aligned(int value, int x, int y, int r, int g, int b){
+	
+	// Draw hundreds place if present
+	if((value/100)%10 != 0){
+		draw_number(1, x, y, r, g, b);
+		x += 3;
+	}
+	
+	// Draw tens place if present
+	if((value/10)%10 != 0 || x == 4){
+		draw_number((points[0]/10)%10, x, y, 128, 128, 128);
+		x += 5;
+	}
+	
+	// Draw ones place
+	draw_number(points[0]%10, x, y, 128, 128, 128);
+}
+
+
+/**
+ * Draws a value right aligned.
+ */
+void SnookerScoreboard::draw_right_aligned(){
+	
+}
 
 /**
  * Private helper method that detects and retrieves keyboard input

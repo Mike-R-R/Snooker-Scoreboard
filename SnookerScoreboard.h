@@ -31,6 +31,8 @@ class SnookerScoreboard : public rgb_matrix::ThreadedCanvasManipulator{
 		void update_board();
 		void clear_board();
 		void populate_board();
+		void draw_left_aligned(int,int,int,int,int,int);
+		void draw_right_aligned(int,int,int,int,int,int);
 		bool check_for_input(char *c);
 	
 };
