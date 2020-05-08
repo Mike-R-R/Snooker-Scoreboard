@@ -222,7 +222,7 @@ void SnookerGame::end_break()
 	Player* playerAtTable = player_at_table();
 	Player* playerNotAtTable = player_not_at_table();
 	
-	if(!playerAtTable->get_on_red() && !freeBall){
+	if(!playerAtTable->get_on_red() && !freeBall && pointsOnTable > 27){
 		pointsOnTable -= 7;
 	}
 	
