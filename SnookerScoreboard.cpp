@@ -537,7 +537,7 @@ void SnookerScoreboard::draw_left_aligned(int value, int x, int y, int r, int g,
 /**
  * Draws a value right aligned.
  */
-void SnookerScoreboard::draw_right_aligned(){
+void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g, int b){
 	
 }
 
