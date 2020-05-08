@@ -555,7 +555,7 @@ void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g
 	}
 	
 	// Draw tens place if present
-	if((value/10)%10 != 0 || value/100)%10 != 0){
+	if((value/10)%10 != 0 || (value/100)%10 != 0){
 		draw_number((value/10)%10, x+3, y, r, g, b);
 	}
 	
