@@ -131,6 +131,7 @@ void Player::won_frame()
     score = 0;
     currentBreak = 0;
     highBreak = 0;
+    onRed = true;
 }
 
 
@@ -142,6 +143,7 @@ void Player::lost_frame()
     score = 0;
     currentBreak = 0;
     highBreak = 0;
+    onRed = true;
 }
 
 
