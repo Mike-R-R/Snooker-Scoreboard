@@ -37,20 +37,14 @@
 
 3. The final step is to copy and build the snooker-scoreboard repository. I have the library setup to run from my documents folder. To get to
     the documents folder open a terminal and run the command `cd Documents`. Once in the documents folder run the command 
-    `git clone https://github.com/Mike-R-R/Snooker-Scoreboard.git`.
-   
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+    `git clone https://github.com/Mike-R-R/Snooker-Scoreboard.git`. This will pull a clone of the repository to your local documents folder.
+    We will then need to move into the Snooker-Scoreboard folder using the command `cd Snooker-Scoreboard`. Finally, run the command `make`
+    to build the program and then `make run` to run the LED scoreboard program.
+    
+* Note: If chose to install the rpi-rgb-led-matrix library in another location you will need to modify the line 
+   `RGB_LIB_DISTRIBUTION=~/rpi-rgb-led-matrix` in the makefile to point to the location where the library was installed.
 
-### Contribution guidelines ###
+### Suggestions? Need help? ###
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* Mike R.
+* Mike.R.R.Software@gmail.com
