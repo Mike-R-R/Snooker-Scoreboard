@@ -361,7 +361,7 @@ void SnookerScoreboard::draw_foul_indicator(int player){
 	DrawLine(canvas(), x+8, y, x+10, y+2, rgb_matrix::Color(255, 0, 0));
 	DrawLine(canvas(), x+8, y+2, x+10, y, rgb_matrix::Color(255, 0, 0));
 	DrawLine(canvas(), x+12, y, x+14, y+2, rgb_matrix::Color(255, 0, 0));
-	DrawLine(canvas(), x+12, y+2, x+12, y, rgb_matrix::Color(255, 0, 0));
+	DrawLine(canvas(), x+12, y+2, x+14, y, rgb_matrix::Color(255, 0, 0));
 }
 
 
