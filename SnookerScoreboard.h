@@ -25,8 +25,9 @@ class SnookerScoreboard : public rgb_matrix::ThreadedCanvasManipulator{
 		
 		void setup_scoreboard();
 		void draw_number(int,int,int,int,int,int);
-		void player_at_table(int, bool);
+		void player_shooting(int, bool);
 		void draw_shooting_indicator(int,int,bool);
+		void draw_foul_indicator(int);
 		void update_board();
 		void clear_board();
 		void populate_board();

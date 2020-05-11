@@ -58,26 +58,37 @@ void SnookerScoreboard::Run(){
 					// Handle '-' key press
 					theGame->lost_red();
 					break;
+				case 48:
+					// Handle '0' key press
+					theGame->foul_occured();
+					break;
 				case 49:
-					theGame->potted_ball(RED);
+					// Handle '1' key press
+					theGame->receive_point_input(RED);
 					break;
 				case 50:
-					theGame->potted_ball(YELLOW);
+					// Handle '2' key press
+					theGame->receive_point_input(YELLOW);
 					break;
 				case 51:
-					theGame->potted_ball(GREEN);
+					// Handle '3' key press
+					theGame->receive_point_input(GREEN);
 					break;
 				case 52:
-					theGame->potted_ball(BROWN);
+					// Handle '4' key press
+					theGame->receive_point_input(BROWN);
 					break;
 				case 53:
-					theGame->potted_ball(BLUE);
+					// Handle '5' key press
+					theGame->receive_point_input(BLUE);
 					break;
 				case 54:
-					theGame->potted_ball(PINK);
+					// Handle '6' key press
+					theGame->receive_point_input(PINK);
 					break;
 				case 55:
-					theGame->potted_ball(BLACK);
+					// Handle '7' key press
+					theGame->receive_point_input(BLACK);
 					break;
 				default:
 					std::cout << key << std::endl;
@@ -244,13 +255,14 @@ void SnookerScoreboard::draw_number(int number, int x, int y, int r, int g, int 
 
 
 /**
- * 
+ * Helper method for drawing the shooting indicator based on the
+ *  player currently at the table.
  */
-void SnookerScoreboard::player_at_table(int player, bool color){
+void SnookerScoreboard::player_shooting(int player, bool onRed){
 	if(player == 1){
-		draw_shooting_indicator(0, 0, color);
+		draw_shooting_indicator(0, onRed);
 	} else {
-		draw_shooting_indicator(18, 0, color);
+		draw_shooting_indicator(18, onRed);
 	}
 }
 
@@ -259,11 +271,12 @@ void SnookerScoreboard::player_at_table(int player, bool color){
  * Draws the shooting indicator over the player at the table
  *  based on whether player is shooting reds or colors.
  */
- 
- // TODO: Adjust shooting indicator for final color shooting.
-void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool onRed){
+void SnookerScoreboard::draw_shooting_indicator(int x, bool onRed){
+	int y = 0;
 	int remainingPoints = theGame->remaining_points();
 	
+	// Handle the special cases of the drawing indicator and default
+	//  to typical drawing behavior
 	switch(remainingPoints){
 		case 27:
 			DrawLine(canvas(), x, y, x, y+2, rgb_matrix::Color(100, 0, 0));
@@ -329,6 +342,28 @@ void SnookerScoreboard::draw_shooting_indicator(int x, int y, bool onRed){
 
 
 /**
+ * Draw the foul indicator over the offending player.
+ */
+void SnookerScoreboard::draw_foul_indicator(int player){
+	int y = 0;
+	int x;
+	
+	if(player == 1){
+		x = 0;
+	} else {
+		x = 18;
+	}
+	
+	DrawLine(canvas(), x, y, x+2, y+2, rgb_matrix::Color(255, 0, 0));
+	DrawLine(canvas(), x, y+2, x+2, y, rgb_matrix::Color(255, 0, 0));
+	DrawLine(canvas(), x+4, y, x+6, y+2, rgb_matrix::Color(255, 0, 0));
+	DrawLine(canvas(), x+4, y+2, x+6, y, rgb_matrix::Color(255, 0, 0));
+	DrawLine(canvas(), x+8, y, x+10, y+2, rgb_matrix::Color(255, 0, 0));
+	DrawLine(canvas(), x+8, y+2, x+10, y, rgb_matrix::Color(255, 0, 0));
+}
+
+
+/**
  * Updates the output of the scoreboard to match the current
  *  state of the game.
  */
@@ -338,10 +373,11 @@ void SnookerScoreboard::update_board(){
 
 	int player = theGame->shooting_player();
 	
-	if(player == 1){
-		draw_shooting_indicator(0, 0, theGame->player_shooting_red());
+	if(theGame->player_fouled(){
+		draw_foul_indicator();
 	} else {
-		draw_shooting_indicator(18, 0, theGame->player_shooting_red());
+		player_shooting(player, theGame->player_shooting_red();
+		}
 	}
 }
 

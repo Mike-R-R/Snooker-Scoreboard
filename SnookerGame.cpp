@@ -11,6 +11,7 @@ SnookerGame::SnookerGame(){
     reds = 15;
     pointsOnTable = 147;
     freeBall = false;
+    foul = false;
 }
 
 /**
@@ -23,6 +24,7 @@ SnookerGame::SnookerGame(bool p1, bool p2){
     reds = 15;
     pointsOnTable = 147;
     freeBall = false;
+    foul = false;
 }
 
 /**
@@ -91,11 +93,23 @@ int SnookerGame::point_spread(){
 /**
  * Player potted a ball
  */
-void SnookerGame::potted_ball(int points){
+void SnookerGame::receive_point_input(int points){
 	Player* playerAtTable = player_at_table();
 	bool color_shot_valid = false;
 	
-	if(!freeBall){
+	if(freeBall){
+	    if(points > 1){
+		playerAtTable->ball_potted(points);
+		playerAtTable->set_on_red(false);
+		freeBall = false;
+	    }
+	} else if(foul){
+	    if(points < 4){
+		foul(4);
+	    } else {
+		foul(points);
+	    }
+	} else {
 		switch(points){
 			case 1:
 				if(reds > 0 && playerAtTable->get_on_red()){
@@ -134,8 +148,6 @@ void SnookerGame::potted_ball(int points){
 					color_shot_valid = true;
 				}
 				break;
-			default:
-				break;
 		}
 		
 		if(points > 1 && !playerAtTable->get_on_red() && pointsOnTable > 27){
@@ -151,27 +163,36 @@ void SnookerGame::potted_ball(int points){
 			pointsOnTable -= 7;
 		}
 		
-	} else{
-		if(points > 1){
-			playerAtTable->ball_potted(points);
-			playerAtTable->set_on_red(false);
-			freeBall = false;
-		}
 	}
 }
 
 
 /*
- * Add foul points to the player not at the table
+ * Gets the foul status of the shooting player
  */
-void SnookerGame::foul(int points)
+void SnookerGame::player_fouled(){
+    return foul;
+}
+
+/*
+ * Indicates that the player at the table has fouled.
+ */
+void SnookerGame::foul_occurred(){
+    foul = true;
+}
+
+
+/*
+ * Add foul points to the player not at the table and end the break
+ *  of the player at the table.
+ */
+void SnookerGame::add_foul_points(int points)
 {
-	Player* playerAtTable = player_at_table();
 	Player* playerNotAtTable = player_not_at_table();
 	
 	playerNotAtTable->add_points(points);
-	playerAtTable->end_break();
-	playerNotAtTable->begin_break();
+	end_break();
+	foul = false;
 }
 
 
