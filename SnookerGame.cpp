@@ -203,9 +203,11 @@ void SnookerGame::free_ball()
 {
 	Player* playerAtTable = player_at_table();
 
-    playerAtTable->add_points(1);
-    playerAtTable->set_on_red(false);
-    freeBall = true;
+    if(!freeBall){
+	playerAtTable->add_points(1);
+	playerAtTable->set_on_red(false);
+	freeBall = true;
+    }
 }
 
 
