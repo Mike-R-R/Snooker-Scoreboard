@@ -374,9 +374,9 @@ void SnookerScoreboard::update_board(){
 	int player = theGame->shooting_player();
 	
 	if(theGame->player_fouled()){
-		draw_foul_indicator();
+		draw_foul_indicator(player);
 	} else {
-		player_shooting(player, theGame->player_shooting_red();
+		player_shooting(player, theGame->player_shooting_red());
 	}
 }
 
