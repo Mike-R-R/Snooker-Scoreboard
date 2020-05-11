@@ -105,9 +105,9 @@ void SnookerGame::receive_point_input(int points){
 	    }
 	} else if(foul){
 	    if(points < 4){
-		foul(4);
+		add_foul_points(4);
 	    } else {
-		foul(points);
+		add_foul_points(points);
 	    }
 	} else {
 		switch(points){
