@@ -351,7 +351,7 @@ void SnookerScoreboard::draw_foul_indicator(int player){
 	if(player == 1){
 		x = 0;
 	} else {
-		x = 18;
+		x = 17;
 	}
 	
 	DrawLine(canvas(), x, y, x+2, y+2, rgb_matrix::Color(255, 0, 0));
@@ -360,6 +360,8 @@ void SnookerScoreboard::draw_foul_indicator(int player){
 	DrawLine(canvas(), x+4, y+2, x+6, y, rgb_matrix::Color(255, 0, 0));
 	DrawLine(canvas(), x+8, y, x+10, y+2, rgb_matrix::Color(255, 0, 0));
 	DrawLine(canvas(), x+8, y+2, x+10, y, rgb_matrix::Color(255, 0, 0));
+	DrawLine(canvas(), x+12, y, x+14, y+2, rgb_matrix::Color(255, 0, 0));
+	DrawLine(canvas(), x+12, y+2, x+12, y, rgb_matrix::Color(255, 0, 0));
 }
 
 
@@ -388,13 +390,9 @@ void SnookerScoreboard::update_board(){
 void SnookerScoreboard::clear_board(){
 	
 	// Clear shoting indicator
-	DrawLine(canvas(), 0, 0, 13, 0, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 0, 1, 13, 1, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 0, 2, 13, 2, rgb_matrix::Color(0, 0, 0));
-	
-	DrawLine(canvas(), 18, 0, 31, 0, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 18, 1, 31, 1, rgb_matrix::Color(0, 0, 0));
-	DrawLine(canvas(), 18, 2, 31, 2, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 0, 31, 0, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 1, 31, 1, rgb_matrix::Color(0, 0, 0));
+	DrawLine(canvas(), 0, 2, 31, 2, rgb_matrix::Color(0, 0, 0));
 	
 	// Clear points
 	DrawLine(canvas(), 0, 3, 13, 3, rgb_matrix::Color(0, 0, 0));
