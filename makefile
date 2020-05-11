@@ -15,10 +15,10 @@ all: $(BINARIES)
 $(RGB_LIBRARY): FORCE
 	$(MAKE) -C $(RGB_LIBDIR)
 
-main: $(RGB_LIBRARY) main.o SnookerScoreboard.o SnookerGame.o Player.o 
+main: main.o SnookerScoreboard.o SnookerGame.o Player.o $(RGB_LIBRARY)
 	$(CXX) $(OBJECTS) -o $@ $(LDFLAGS)
 
-%.o: %.cpp %.h
+%.o: %.cpp
 	$(CXX) -I $(RGB_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
 clean:
