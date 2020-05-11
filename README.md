@@ -48,12 +48,14 @@
 
 * The scoreboard is setup so that it can be easily used with a wireless number pad or keyboard.
 
-   *`1` - Represents a red ball
-   *`2 to 7` - Represents the matching color with that point value
-   *`Enter` - Ends the current break and switches players
-   *`-` - Lost red
-   *`+` - Free ball
-   *`*` - Ends the current frame
+   * `1` - Represents a red ball
+   * `2 to 7` - Represents the matching color with that point value
+   * `Enter` - Ends the current break and switches players
+   * `0` - Foul
+      * Any key 1 - 7 can be pressed in the foul state and the minimum of 4 foul points will be added.
+   * `-` - Lost red
+   * `+` - Free ball
+   * `*` - Ends the current frame
    
 ### Upcoming features by order of planned implementation ###
 
