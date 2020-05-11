@@ -170,7 +170,7 @@ void SnookerGame::receive_point_input(int points){
 /*
  * Gets the foul status of the shooting player
  */
-void SnookerGame::player_fouled(){
+bool SnookerGame::player_fouled(){
     return foul;
 }
 

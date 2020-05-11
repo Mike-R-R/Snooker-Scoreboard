@@ -60,7 +60,7 @@ void SnookerScoreboard::Run(){
 					break;
 				case 48:
 					// Handle '0' key press
-					theGame->foul_occured();
+					theGame->foul_occurred();
 					break;
 				case 49:
 					// Handle '1' key press
@@ -123,7 +123,7 @@ bool SnookerScoreboard::running(){
 void SnookerScoreboard::setup_scoreboard(){
 	
 	// Initial shooting player
-	player_at_table(1, false);
+	player_shooting(1, false);
 	
 	// Setup P area indicating player points
 	canvas()->SetPixel( 14, 3, 255, 0, 0);
@@ -373,11 +373,10 @@ void SnookerScoreboard::update_board(){
 
 	int player = theGame->shooting_player();
 	
-	if(theGame->player_fouled(){
+	if(theGame->player_fouled()){
 		draw_foul_indicator();
 	} else {
 		player_shooting(player, theGame->player_shooting_red();
-		}
 	}
 }
 
