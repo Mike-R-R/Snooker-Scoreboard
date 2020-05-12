@@ -38,7 +38,7 @@ void SnookerQueue::game_state_changed(int pointsAddedToPlayer1, int pointsAddedT
 
 
 GameState* SnookerQueue::previous_game_state(){
-	GameState *game = NULL;
+	GameState *game = 0;
 	
 	if(!gameQueue.empty()){
 		game = &gameQueue.front();
