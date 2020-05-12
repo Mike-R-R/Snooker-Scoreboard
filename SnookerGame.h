@@ -3,6 +3,7 @@
 #define SNOOKER_GAME
 
 #include "Player.h"
+#include "SnookerQueue.h"
 
 class SnookerGame {
     public:
