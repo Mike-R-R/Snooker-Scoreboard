@@ -33,6 +33,7 @@ void SnookerScoreboard::Run(){
 	keypad(stdscr, TRUE);
 	nodelay(stdscr, TRUE);
 	
+	// Draw the static members of the scoreboard
 	setup_scoreboard();
 	
 	while(game_running){
@@ -275,8 +276,8 @@ void SnookerScoreboard::draw_shooting_indicator(int x, bool onRed){
 	int y = 0;
 	int remainingPoints = theGame->remaining_points();
 	
-	// Handle the special cases of the drawing indicator and default
-	//  to typical drawing behavior
+	// Handle the special cases for drawing the shooting indicator and
+	//  default to typical drawing behavior
 	switch(remainingPoints){
 		case 27:
 			DrawLine(canvas(), x, y, x, y+2, rgb_matrix::Color(100, 0, 0));
@@ -462,6 +463,8 @@ void SnookerScoreboard::populate_board(){
 	int pointDiff = theGame->point_spread();
 	int remainingPoints = theGame->remaining_points();
 	
+	// Determine if a player is further behind in points than are left
+	//  on the table and invert their score coloring if they are.
 	if(pointDiff >= 0 && pointDiff > remainingPoints){
 		// Draw player 2 inverted
 		draw_left_aligned(points[0], 1, 3, 128, 128, 128);
