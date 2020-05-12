@@ -178,7 +178,9 @@ bool SnookerGame::player_fouled(){
  * Indicates that the player at the table has fouled.
  */
 void SnookerGame::foul_occurred(){
-    foul = true;
+    if(pointsOnTable != 0){
+	foul = true;
+    }
 }
 
 
@@ -203,7 +205,7 @@ void SnookerGame::free_ball()
 {
 	Player* playerAtTable = player_at_table();
 
-    if(!freeBall){
+    if(!freeBall && pointsOnTable != 0){
 	playerAtTable->add_points(1);
 	playerAtTable->set_on_red(false);
 	freeBall = true;
@@ -260,8 +262,10 @@ void SnookerGame::end_break()
  */
 void SnookerGame::lost_red()
 {
-    reds--;
-    pointsOnTable -= 8;
+    if(reds != 0){
+	reds--;
+	pointsOnTable -= 8;
+    }
 }
 
 
