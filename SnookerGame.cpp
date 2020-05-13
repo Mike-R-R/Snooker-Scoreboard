@@ -100,7 +100,7 @@ void SnookerGame::receive_point_input(int points){
 	if(freeBall){
 	    if(points > 1){
 		playerAtTable->ball_potted(points);
-		playerAtTable->set_on_red(false);
+		playerAtTable->set_on_red(true);
 		freeBall = false;
 	    }
 	} else if(foul){
