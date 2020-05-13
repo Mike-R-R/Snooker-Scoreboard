@@ -5,7 +5,7 @@
 /**
  * Default constructor for a game of snooker
  */
-SnookerGame::SnookerGame(){
+SnookerGame::SnookerGame() {
     player1 = new Player(true);
     player2 = new Player(false);
     reds = 15;
@@ -45,13 +45,14 @@ SnookerGame& SnookerGame::operator= (const SnookerGame& g) {
     return *this;
 }
 
+
 int SnookerGame::remaining_reds(){
     return reds;
 }
 
 
 int SnookerGame::remaining_points(){
-	return pointsOnTable;
+    return pointsOnTable;
 }
 
 /**
@@ -59,7 +60,7 @@ int SnookerGame::remaining_points(){
  *  first integer is player 1 and the second is
  *  player 2
  */
-void SnookerGame::get_player_scores(int * scores){
+void SnookerGame::get_player_scores(int* scores){
     *scores = player1->get_score();
     *(scores + 1) = player2->get_score();
 }
@@ -70,7 +71,7 @@ void SnookerGame::get_player_scores(int * scores){
  *  first integer is player 1 and the second is
  *  player 2
  */
-void SnookerGame::get_player_breaks(int * breaks){
+void SnookerGame::get_player_breaks(int* breaks){
     *breaks = player1->get_current_break();
     *(breaks + 1) = player2->get_current_break();
 }
@@ -91,7 +92,8 @@ int SnookerGame::point_spread(){
 
 
 /**
- * Player potted a ball
+ * Receives point input from the user and determines how to add the
+ *  point value to a player if the input is valid for the state.
  */
 void SnookerGame::receive_point_input(int points){
 	Player* playerAtTable = player_at_table();
@@ -150,17 +152,20 @@ void SnookerGame::receive_point_input(int points){
 				break;
 		}
 		
+		// Player is shooting color after potting a red
 		if(points > 1 && !playerAtTable->get_on_red() && pointsOnTable > 27){
 			color_shot_valid = true;
+			pointsOnTable -= 7;
 		}
 		
-		if(color_shot_valid && reds == 0 && pointsOnTable <= 27){
-			playerAtTable->ball_potted(points);
+		if (color_shot_valid){
+		    playerAtTable->ball_potted(points);
+		    
+		    // Set points on table and onRed value when only colors remain on the table.
+		    if(pointsOnTable <= 27){
 			playerAtTable->set_on_red(false);
 			pointsOnTable -= points;
-		} else if (color_shot_valid){
-			playerAtTable->ball_potted(points);
-			pointsOnTable -= 7;
+		    }
 		}
 		
 	}
@@ -203,7 +208,7 @@ void SnookerGame::add_foul_points(int points)
  */
 void SnookerGame::free_ball()
 {
-	Player* playerAtTable = player_at_table();
+    Player* playerAtTable = player_at_table();
 
     if(!freeBall && pointsOnTable != 0){
 	playerAtTable->add_points(1);
@@ -274,7 +279,7 @@ void SnookerGame::lost_red()
  *  1 and a 2 for player 2.
  */
 int SnookerGame::shooting_player(){
-	if(player1->get_player_at_table())
+    if(player1->get_player_at_table())
     {
         return 1;
     }
@@ -286,7 +291,7 @@ int SnookerGame::shooting_player(){
 
 
 bool SnookerGame::player_shooting_red(){
-	return player_at_table()->get_on_red();
+    return player_at_table()->get_on_red();
 }
 
 
@@ -294,12 +299,9 @@ bool SnookerGame::player_shooting_red(){
  * Private helper method to get player at table.
  */
 Player* SnookerGame::player_at_table(){
-	 if(player1->get_player_at_table())
-    {
-        return player1;
-    }
-    else
-    {
+    if(player1->get_player_at_table()){
+	return player1;
+    } else {
         return player2;
     }
 }
@@ -309,13 +311,41 @@ Player* SnookerGame::player_at_table(){
  * Private helper method to get player not at table.
  */
 Player* SnookerGame::player_not_at_table(){
-	 if(player1->get_player_at_table())
-    {
+    if(player1->get_player_at_table()){
         return player2;
-    }
-    else
-    {
+    } else {
         return player1;
     }
+}
+
+
+/**
+ * Private helper method to create a snapshot of the current game state
+ *  after a change and add it to the snooker game state queue.
+ */
+void SnookerGame::game_state_changed(int pointsAdded){
+    GameState currentState;
+    
+    GameState game;
+    currentState.pointsAdded = pointsAdded;
+    currentState.pointsOnTable = pointsOnTable;
+    currentState.reds = reds;
+    currentState.shootingPlayer = shootingPlayer;
+    currentState.onRed = onRed;
+    currentState.lostRed = lostRed;
+    currentState.foul = foul;
+    currentState.lostRed = lostRed;
+
+    
+}
+
+
+/**
+ * Private helper method to revert snooker game to last save state.
+ */
+void SnookerGame::revert_game_state(){
+    GameState revertState = 
+
+    
 }
 

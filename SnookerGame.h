@@ -27,16 +27,19 @@ class SnookerGame {
         int shooting_player();
         bool player_shooting_red();
         
-	private:
-		Player* player1;
-		Player* player2;
-		int reds;
-		int pointsOnTable;
-		bool freeBall;
-		bool foul;
-		
-		Player* player_at_table();
-		Player* player_not_at_table();
+    private:
+	Player* player1;
+	Player* player2;
+	int reds;
+	int pointsOnTable;
+	bool freeBall;
+	bool foul;
+	SnookerQueue stateQueue;
+	
+	Player* player_at_table();
+	Player* player_not_at_table();
+	void game_state_changed();
+	void revert_game_state();
 };
 
 #endif

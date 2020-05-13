@@ -548,8 +548,7 @@ void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g
 
 
 /**
- * Draws the numbers inverted to indicated player 1 is
- *  more points behind than remain on the table
+ * Draws the passed value left aligned and in inverted colors
  */
 void SnookerScoreboard::draw_left_inverted(int value){
 	DrawLine(canvas(), 1, 2, 12, 2, rgb_matrix::Color(128, 128, 128));
@@ -566,8 +565,7 @@ void SnookerScoreboard::draw_left_inverted(int value){
 }
 
 /**
- * Draws the numbers inverted to indicated player 2 is
- *  more points behind than remain on the table
+ * Draws the passed value right aligned and in inverted colors
  */
 void SnookerScoreboard::draw_right_inverted(int value){
 	DrawLine(canvas(), 19, 2, 30, 2, rgb_matrix::Color(128, 128, 128));

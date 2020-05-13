@@ -5,8 +5,7 @@
 #include <queue>
 
 struct GameState{
-	int pointsAddedToPlayer1;
-	int pointsAddedToPlayer2;
+	int pointsAdded;
 	int pointsOnTable;
 	int reds;
 	int shootingPlayer;
@@ -19,9 +18,9 @@ struct GameState{
 class SnookerQueue{
 	public:
 		SnookerQueue();
-		SnookerQueue(GameState);
 		~SnookerQueue();
-		void game_state_changed(int,int,int,int,int,bool,bool,bool,bool);
+		void add_new_state(GameState);
+		void add_new_state(int,int,int,int,bool,bool,bool,bool);
 		GameState* previous_game_state();
 	
 	private:
