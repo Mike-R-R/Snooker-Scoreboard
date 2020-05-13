@@ -19,7 +19,7 @@
 	    [RGB Matrix Hat](https://www.adafruit.com/product/2345) that includes a real time clock if that is something
 	    that interests you. The older version is not assembled so you will have to solder the connectors to the board.
 
-### How do I get setup? ###
+### How do I get set up? ###
 
 1. To begin you will need to install Raspbian on you Raspberry Pi. I would highly recommend using Raspbian Lite if 
    you plan to do more with the matrix and are familiar enough with linux that you can work comfortably from the 
@@ -35,13 +35,13 @@
     correlate to the correct terminals. The LED board I received came with a power cord that was incorrectly assembled resulting in flipped 
     colors where black was positive and red was negative for the matrix. If you connect the power backwards you can damage your Matrix.
 
-3. The final step is to copy and build the snooker-scoreboard repository. I have the library setup to run from my documents folder. To get to
+3. The final step is to copy and build the Snooker-Scoreboard repository. I have the library setup to run from my documents folder. To get to
     the documents folder open a terminal and run the command `cd Documents`. Once in the documents folder run the command 
     `git clone https://github.com/Mike-R-R/Snooker-Scoreboard.git`. This will pull a clone of the repository to your local documents folder.
     We will then need to move into the Snooker-Scoreboard folder using the command `cd Snooker-Scoreboard`. Finally, run the command `make`
     to build the program and then `make run` to run the LED scoreboard program.
     
-* Note: If chose to install the rpi-rgb-led-matrix library in another location you will need to modify the line 
+* Note: If you chose to install the rpi-rgb-led-matrix library in another location you will need to modify the line 
    `RGB_LIB_DISTRIBUTION=~/rpi-rgb-led-matrix` in the makefile to point to the location where the library was installed.
    
 ### Scoreboard Controls ###
