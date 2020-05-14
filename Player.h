@@ -10,8 +10,9 @@ class Player{
         int get_score();
         void set_score(int);
         int get_frames_won();
-        void set_current_break(int);
+        void set_frames_won(int);
         int get_current_break();
+        void set_current_break(int);
         int get_high_break();
         void set_high_break(int);
         bool get_on_red();

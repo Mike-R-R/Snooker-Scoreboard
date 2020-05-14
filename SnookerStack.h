@@ -10,7 +10,7 @@ struct GameState{
 	int p1CurrentBreak;
 	int p2CurrentBreak;
 	int p1HighBreak;
-	int p2HightBreak;
+	int p2HighBreak;
 	int p1FramesWon;
 	int p2FramesWon;
 	int pointsOnTable;
