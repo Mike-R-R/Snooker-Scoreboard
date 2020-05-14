@@ -358,8 +358,8 @@ Player* SnookerGame::player_not_at_table()
 void SnookerGame::game_state_changed()
 {
     GameState currentState;
-    currentState.p1Points = player1.get_score();
-    currentState.p2Points = player2.get_score();
+    currentState.p1Points = player1->get_score();
+    currentState.p2Points = player2->get_score();
     currentState.pointsOnTable = pointsOnTable;
     currentState.reds = reds;
     currentState.shootingPlayer = shooting_player();
