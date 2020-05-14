@@ -71,6 +71,10 @@ void SnookerScoreboard::Run()
 					// Handle '-' key press
 					theGame->lost_red();
 					break;
+				case 47:
+					// Handle '/' key press
+					theGame->revert_game_state();
+					break;
 				case 48:
 					// Handle '0' key press
 					theGame->foul_occurred();

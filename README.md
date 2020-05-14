@@ -57,10 +57,11 @@
    * `-` - Lost red
    * `+` - Free ball
    * `*` - Ends the current frame
+   * '/ or Backspace' - Reverts the game state to undo any action
    
 ### Upcoming features by order of planned implementation ###
 
-1. Input queue to allow user to undo any action.
+1. ~~Input queue to allow user to undo any action.~~
 2. Instruction to set up program to automatically run when the Pi is turned on.
 3. Android app to control scoreboard over a closed network.
 4. 3D printed case plans.
