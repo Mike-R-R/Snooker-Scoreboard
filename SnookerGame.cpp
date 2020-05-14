@@ -129,6 +129,12 @@ void SnookerGame::receive_point_input(int points)
 	    if(reds > 0){
 		game_state_changed();
 		playerAtTable->ball_potted(points);
+		
+		// Player is on color when multiple reds potted together
+		if(playerAtTable->get_on_red()){
+		    playerAtTable->set_on_red(false);
+		}
+		
 		reds--;
 		pointsOnTable -= 1;
 	    }
