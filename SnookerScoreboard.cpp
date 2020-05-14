@@ -12,19 +12,30 @@
 #define BLACK 7
 
 
-SnookerScoreboard::SnookerScoreboard(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m) {
+/**
+ * Default constructor for SnookerScoreboard class
+ */
+SnookerScoreboard::SnookerScoreboard(rgb_matrix::Canvas *m) : rgb_matrix::ThreadedCanvasManipulator(m) 
+{
 	game_running = true;
 	theGame = new SnookerGame();
 }
 
 
-SnookerScoreboard::~SnookerScoreboard(){}
+/**
+ * Default destructor for SnookerScoreboard class
+ */
+SnookerScoreboard::~SnookerScoreboard()
+{
+
+}
 
 
 /**
  * The main loop of the scoreboard
  */
-void SnookerScoreboard::Run(){
+void SnookerScoreboard::Run()
+{
 	// Curses initializations
 	char key = ' ';
 	initscr();
@@ -42,6 +53,7 @@ void SnookerScoreboard::Run(){
 			switch(int(key)){
 				case 7:
 					// Handle backspace key press
+					theGame->revert_game_state();
 					break;
 				case 10:
 					// Handle enter key press
@@ -105,7 +117,8 @@ void SnookerScoreboard::Run(){
 /**
  * Stops the scoreboard program
  */
-void SnookerScoreboard::stop_game(){
+void SnookerScoreboard::stop_game()
+{
 	game_running = false;
 }
 
@@ -113,7 +126,8 @@ void SnookerScoreboard::stop_game(){
 /**
  * Returns true if game is running and false otherwise.
  */
-bool SnookerScoreboard::running(){
+bool SnookerScoreboard::running()
+{
 	return game_running;
 }
 
@@ -121,7 +135,8 @@ bool SnookerScoreboard::running(){
 /**
  * Sets up the inital layout for the scoreboard
  */
-void SnookerScoreboard::setup_scoreboard(){
+void SnookerScoreboard::setup_scoreboard()
+{
 	
 	// Initial shooting player
 	player_shooting(1, false);
@@ -184,7 +199,8 @@ void SnookerScoreboard::setup_scoreboard(){
  * Draws a number on the scoreboard at the x and y coordinates
  *  in the rgb color passed to the function.
  */
-void SnookerScoreboard::draw_number(int number, int x, int y, int r, int g, int b){
+void SnookerScoreboard::draw_number(int number, int x, int y, int r, int g, int b)
+{
 	switch(number){
 		case 0:
 			DrawLine(canvas(), x, y, x+3, y, rgb_matrix::Color(r, g, b));
@@ -259,7 +275,8 @@ void SnookerScoreboard::draw_number(int number, int x, int y, int r, int g, int 
  * Helper method for drawing the shooting indicator based on the
  *  player currently at the table.
  */
-void SnookerScoreboard::player_shooting(int player, bool onRed){
+void SnookerScoreboard::player_shooting(int player, bool onRed)
+{
 	if(player == 1){
 		draw_shooting_indicator(0, onRed);
 	} else {
@@ -272,7 +289,8 @@ void SnookerScoreboard::player_shooting(int player, bool onRed){
  * Draws the shooting indicator over the player at the table
  *  based on whether player is shooting reds or colors.
  */
-void SnookerScoreboard::draw_shooting_indicator(int x, bool onRed){
+void SnookerScoreboard::draw_shooting_indicator(int x, bool onRed)
+{
 	int y = 0;
 	int remainingPoints = theGame->remaining_points();
 	
@@ -345,7 +363,8 @@ void SnookerScoreboard::draw_shooting_indicator(int x, bool onRed){
 /**
  * Draw the foul indicator over the offending player.
  */
-void SnookerScoreboard::draw_foul_indicator(int player){
+void SnookerScoreboard::draw_foul_indicator(int player)
+{
 	int y = 0;
 	int x;
 	
@@ -370,7 +389,8 @@ void SnookerScoreboard::draw_foul_indicator(int player){
  * Updates the output of the scoreboard to match the current
  *  state of the game.
  */
-void SnookerScoreboard::update_board(){
+void SnookerScoreboard::update_board()
+{
 	clear_board();
 	populate_board();
 
@@ -388,8 +408,8 @@ void SnookerScoreboard::update_board(){
  * Clears the point, break, reds, and points on table
  *  values from the board.
  */
-void SnookerScoreboard::clear_board(){
-	
+void SnookerScoreboard::clear_board()
+{	
 	// Clear shoting indicator
 	DrawLine(canvas(), 0, 0, 31, 0, rgb_matrix::Color(0, 0, 0));
 	DrawLine(canvas(), 0, 1, 31, 1, rgb_matrix::Color(0, 0, 0));
@@ -455,8 +475,8 @@ void SnookerScoreboard::clear_board(){
  * Populates the current points, break, reds, and points
  *  on table value spaces on the board.
  */
-void SnookerScoreboard::populate_board(){
-	
+void SnookerScoreboard::populate_board()
+{	
 	// Populate player points
 	int points[2];
 	theGame->get_player_scores(points);
@@ -508,8 +528,8 @@ void SnookerScoreboard::populate_board(){
 /**
  * Draws a value left aligned.
  */
-void SnookerScoreboard::draw_left_aligned(int value, int x, int y, int r, int g, int b){
-	
+void SnookerScoreboard::draw_left_aligned(int value, int x, int y, int r, int g, int b)
+{	
 	// Draw hundreds place if present
 	if((value/100)%10 != 0){
 		draw_number(1, x, y, r, g, b);
@@ -530,8 +550,8 @@ void SnookerScoreboard::draw_left_aligned(int value, int x, int y, int r, int g,
 /**
  * Draws a value right aligned.
  */
-void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g, int b){
-	
+void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g, int b)
+{	
 	// Draw hundreds place if present
 	if((value/100)%10 != 0){
 		draw_number(1, x, y, r, g, b);
@@ -550,7 +570,8 @@ void SnookerScoreboard::draw_right_aligned(int value, int x, int y, int r, int g
 /**
  * Draws the passed value left aligned and in inverted colors
  */
-void SnookerScoreboard::draw_left_inverted(int value){
+void SnookerScoreboard::draw_left_inverted(int value)
+{
 	DrawLine(canvas(), 1, 2, 12, 2, rgb_matrix::Color(128, 128, 128));
 	DrawLine(canvas(), 0, 3, 13, 3, rgb_matrix::Color(128, 128, 128));
 	DrawLine(canvas(), 0, 4, 13, 4, rgb_matrix::Color(128, 128, 128));
@@ -567,7 +588,8 @@ void SnookerScoreboard::draw_left_inverted(int value){
 /**
  * Draws the passed value right aligned and in inverted colors
  */
-void SnookerScoreboard::draw_right_inverted(int value){
+void SnookerScoreboard::draw_right_inverted(int value)
+{
 	DrawLine(canvas(), 19, 2, 30, 2, rgb_matrix::Color(128, 128, 128));
 	DrawLine(canvas(), 18, 3, 31, 3, rgb_matrix::Color(128, 128, 128));
 	DrawLine(canvas(), 18, 4, 31, 4, rgb_matrix::Color(128, 128, 128));
@@ -585,7 +607,8 @@ void SnookerScoreboard::draw_right_inverted(int value){
 /**
  * Private helper method that detects and retrieves keyboard input
  */
-bool SnookerScoreboard::check_for_input(char *c){
+bool SnookerScoreboard::check_for_input(char *c)
+{
 	// If error value of 255 received do nothing, otherwise 
 	if((*c = getch()) != 255) {
 		return true; // Key Was Hit

@@ -4,7 +4,8 @@
 /**
  * Default constructor for Player class
  */
-Player::Player(){
+Player::Player()
+{
     score = 0;
     currentBreak = 0;
     highBreak = 0;
@@ -15,10 +16,11 @@ Player::Player(){
 
 
 /**
- * Constructor for Player where _shooting sets
+ * Constructor for Player where breaking sets
  *  if the Player is currently at the table
  */
-Player::Player(bool breaking){
+Player::Player(bool breaking)
+{
     score = 0;
     currentBreak = 0;
     highBreak = 0;
@@ -31,13 +33,17 @@ Player::Player(bool breaking){
 /**
  * Default destructor for Player
  */
-Player::~Player(){}
+Player::~Player()
+{
+
+}
 
 
 /**
  * Returns Player score
  */
-int Player::get_score(){
+int Player::get_score()
+{
     return score;
 }
 
@@ -45,7 +51,8 @@ int Player::get_score(){
 /**
  * Returns frames won by Player
  */
-int Player::get_frames_won(){
+int Player::get_frames_won()
+{
     return framesWon;
 }
 
@@ -53,14 +60,16 @@ int Player::get_frames_won(){
 /**
  * Returns the players current break
  */
-int Player::get_current_break(){
+int Player::get_current_break()
+{
     return currentBreak;
 }
 
 /*
  * Returns Players highest break
  */
-int Player::get_high_break(){
+int Player::get_high_break()
+{
     return highBreak;
 }
 
@@ -68,7 +77,8 @@ int Player::get_high_break(){
 /**
  * Returns whether the player is shooting a red or color
  */
-bool Player::get_on_red(){
+bool Player::get_on_red()
+{
     return onRed;
 }
 
@@ -76,7 +86,8 @@ bool Player::get_on_red(){
 /**
  * Set whether the player is shooting a red or color
  */
-void Player::set_on_red(bool red){
+void Player::set_on_red(bool red)
+{
     onRed = red;
 }
 
@@ -85,7 +96,8 @@ void Player::set_on_red(bool red){
  * Returns boolean representing whether the Player
  *  is currently at the table
  */
-bool Player::get_player_at_table(){
+bool Player::get_player_at_table()
+{
     return atTable;
 }
 
@@ -93,7 +105,8 @@ bool Player::get_player_at_table(){
 /**
  * Player potted a ball.
  */
-void Player::ball_potted(int points){
+void Player::ball_potted(int points)
+{
     add_points(points);
     onRed = !onRed;
 }
@@ -150,7 +163,8 @@ void Player::lost_frame()
 /**
  * Adds input integer points to players score
  */
-void Player::add_points(int points){
+void Player::add_points(int points)
+{
     score += points;
     currentBreak += points;
 }

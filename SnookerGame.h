@@ -26,20 +26,20 @@ class SnookerGame {
         void lost_red();
         int shooting_player();
         bool player_shooting_red();
+	void revert_game_state();
         
     private:
 	Player* player1;
 	Player* player2;
-	int reds;
 	int pointsOnTable;
-	bool freeBall;
+	int reds;
 	bool foul;
+	bool freeBall;
 	SnookerStack stateStack;
 	
 	Player* player_at_table();
 	Player* player_not_at_table();
-	void game_state_changed(int,bool);
-	void revert_game_state();
+	void game_state_changed();
 };
 
 #endif
