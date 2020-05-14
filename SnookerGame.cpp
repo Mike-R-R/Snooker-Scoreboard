@@ -358,8 +358,8 @@ Player* SnookerGame::player_not_at_table()
 void SnookerGame::game_state_changed()
 {
     GameState currentState;
-    currentState.p1Points;
-    currentState.p2Points;
+    currentState.p1Points = player1.get_score();
+    currentState.p2Points = player2.get_score();
     currentState.pointsOnTable = pointsOnTable;
     currentState.reds = reds;
     currentState.shootingPlayer = shooting_player();
@@ -376,7 +376,7 @@ void SnookerGame::game_state_changed()
  */
 void SnookerGame::revert_game_state()
 {
-    GameState* revertState = gameStack.previous_game_state();
+    GameState* revertState = stateStack.previous_game_state();
 
     
 }
