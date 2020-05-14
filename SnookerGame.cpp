@@ -218,7 +218,6 @@ void SnookerGame::add_foul_points(int points)
 {
 	Player* playerNotAtTable = player_not_at_table();
 	
-	game_state_changed();
 	playerNotAtTable->add_points(points);
 	end_break();
 	foul = false;
