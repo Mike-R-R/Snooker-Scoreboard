@@ -8,7 +8,7 @@ class Player{
         Player(bool);
         ~Player();
         int get_score();
-        void get_score(int);
+        void set_score(int);
         int get_frames_won();
         int get_current_break();
         int get_high_break();

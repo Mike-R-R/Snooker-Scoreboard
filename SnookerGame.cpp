@@ -308,7 +308,7 @@ void SnookerGame::lost_red()
  */
 int SnookerGame::shooting_player()
 {
-    if(player1->get_player_at_table())
+    if(player1->get_at_table())
     {
         return 1;
     }
@@ -330,7 +330,7 @@ bool SnookerGame::player_shooting_red()
  */
 Player* SnookerGame::player_at_table()
 {
-    if(player1->get_player_at_table()){
+    if(player1->get_at_table()){
 	return player1;
     } else {
         return player2;
@@ -343,7 +343,7 @@ Player* SnookerGame::player_at_table()
  */
 Player* SnookerGame::player_not_at_table()
 {
-    if(player1->get_player_at_table()){
+    if(player1->get_at_table()){
         return player2;
     } else {
         return player1;
