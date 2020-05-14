@@ -53,7 +53,7 @@ int Player::get_score()
  */
 void Player::set_score(int score)
 {
-    this.score = score;
+    this->score = score;
 }
 
 
@@ -117,7 +117,7 @@ bool Player::get_at_table()
  */
 void Player::set_at_table(bool atTable)
 {
-    this.atTable = atTable;
+    this->atTable = atTable;
 }
 
 
