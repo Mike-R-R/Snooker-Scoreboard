@@ -179,6 +179,7 @@ bool SnookerGame::player_fouled(){
     return foul;
 }
 
+
 /*
  * Indicates that the player at the table has fouled.
  */
@@ -321,9 +322,9 @@ Player* SnookerGame::player_not_at_table(){
 
 /**
  * Private helper method to create a snapshot of the current game state
- *  after a change and add it to the snooker game state queue.
+ *  after a change and add it to the snooker game state stack.
  */
-void SnookerGame::game_state_changed(int pointsAdded){
+void SnookerGame::game_state_changed(int pointsAdded, bool endBreak){
     GameState currentState;
     
     GameState game;
@@ -335,8 +336,9 @@ void SnookerGame::game_state_changed(int pointsAdded){
     currentState.lostRed = lostRed;
     currentState.foul = foul;
     currentState.lostRed = lostRed;
+    currentState.endBreak = endBreak;
 
-    
+    gameStack.add_new_state(game);
 }
 
 
@@ -344,7 +346,7 @@ void SnookerGame::game_state_changed(int pointsAdded){
  * Private helper method to revert snooker game to last save state.
  */
 void SnookerGame::revert_game_state(){
-    GameState revertState = 
+    GameState* revertState = gameStack.previous_game_state();
 
     
 }

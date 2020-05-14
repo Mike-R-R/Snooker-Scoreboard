@@ -3,7 +3,7 @@
 #define SNOOKER_GAME
 
 #include "Player.h"
-#include "SnookerQueue.h"
+#include "SnookerStack.h"
 
 class SnookerGame {
     public:
@@ -34,11 +34,11 @@ class SnookerGame {
 	int pointsOnTable;
 	bool freeBall;
 	bool foul;
-	SnookerQueue stateQueue;
+	SnookerStack stateStack;
 	
 	Player* player_at_table();
 	Player* player_not_at_table();
-	void game_state_changed();
+	void game_state_changed(int,bool);
 	void revert_game_state();
 };
 
