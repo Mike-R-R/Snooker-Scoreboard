@@ -49,6 +49,15 @@ int Player::get_score()
 
 
 /**
+ * Sets Player score
+ */
+void Player::set_score(int score)
+{
+    this.score = score;
+}
+
+
+/**
  * Returns frames won by Player
  */
 int Player::get_frames_won()
@@ -96,9 +105,19 @@ void Player::set_on_red(bool red)
  * Returns boolean representing whether the Player
  *  is currently at the table
  */
-bool Player::get_player_at_table()
+bool Player::get_at_table()
 {
     return atTable;
+}
+
+
+/**
+ * Sets boolean representing whether the Player
+ *  is currently at the table
+ */
+void Player::set_at_table(bool atTable)
+{
+    this.atTable = atTable;
 }
 
 
