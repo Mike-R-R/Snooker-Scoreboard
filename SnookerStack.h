@@ -19,8 +19,8 @@ class SnookerStack{
 	public:
 		SnookerStack();
 		~SnookerStack();
-		void add_new_state(GameState);
-		void add_new_state(int,int,int,int,int,bool,bool,bool);
+		void add_game_state(GameState);
+		void add_game_state(int,int,int,int,int,bool,bool,bool);
 		GameState* previous_game_state();
 	
 	private:

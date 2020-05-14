@@ -23,7 +23,7 @@ SnookerStack::~SnookerStack()
 /**
  * Adds the passed game state to the state stack.
  */
-void SnookerStack::add_new_state(GameState newState)
+void SnookerStack::add_game_state(GameState newState)
 {
 	gameQueue.push(newState);
 }
@@ -32,7 +32,7 @@ void SnookerStack::add_new_state(GameState newState)
 /**
  * Adds a game state to the stack based on passed values.
  */
-void SnookerStack::add_new_state(int p1Points, p2Points, int pointsOnTable, int reds,
+void SnookerStack::add_game_state(int p1Points, p2Points, int pointsOnTable, int reds,
 									int shootingPlayer, bool onRed, bool foul, bool freeBall)
 {
 	GameState game;
