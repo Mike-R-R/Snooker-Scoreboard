@@ -126,7 +126,7 @@ void SnookerGame::receive_point_input(int points)
     } else {
 	// Check if red ball potted
 	if(points == 1){
-	    if(reds > 0 && playerAtTable->get_on_red()){
+	    if(reds > 0){
 		game_state_changed();
 		playerAtTable->ball_potted(points);
 		reds--;
