@@ -46,15 +46,15 @@
    
 ### How do I automatically run the scoreboard program when the Pi is powered on? ###
 
-1. Set up the Raspberry Pi to boot to desktop. Run the command 'sudo raspi-config' and under boot options choose either boot to desktop or boot 
+1. Set up the Raspberry Pi to boot to desktop. Run the command `sudo raspi-config` and under boot options choose either boot to desktop or boot 
 to command line.
 
-2. Open the .bashrc using the command 'sudo nano /home/pi/.bashrc'. At the bottom of this file add the command 
-'(cd ~/Documents/Snooker-Scoreboard && make)'. Alternatively, you can use the -C option with make such as 'make run -C ~/Documents/Snooker-Scoreboard'
+2. Open the .bashrc using the command `sudo nano /home/pi/.bashrc`. At the bottom of this file add the command 
+`(cd ~/Documents/Snooker-Scoreboard && make)`. Alternatively, you can use the -C option with make such as `make run -C ~/Documents/Snooker-Scoreboard`
 if that is your preference. If you have your Snooker-Scoreboard repo in a different path you will need to modify the command with your path. In nano 
-press 'ctrl+o' to save the file and 'ctrl+x' to exit back to the command line.
+press `ctrl+o` to save the file and `ctrl+x` to exit back to the command line.
 
-3. Run the command 'sudo reboot' to reboot the Pi and verify that the scoreboard program runs upon boot.
+3. Run the command `sudo reboot` to reboot the Pi and verify that the scoreboard program runs upon boot.
    
 ### Scoreboard Controls ###
 
