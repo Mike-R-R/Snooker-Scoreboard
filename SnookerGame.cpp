@@ -365,6 +365,8 @@ void SnookerGame::game_state_changed()
     currentState.p2CurrentBreak = player2->get_current_break();
     currentState.p1HighBreak = player1->get_high_break();
     currentState.p2HighBreak = player2->get_high_break();
+    currentState.p1FramesWon = player1->get_frames_won();
+    currentState.p2FramesWon = player2->get_frames_won();
     currentState.pointsOnTable = pointsOnTable;
     currentState.reds = reds;
     currentState.shootingPlayer = shooting_player();
@@ -390,6 +392,8 @@ void SnookerGame::revert_game_state()
 	player2->set_current_break(revertState->p2CurrentBreak);
 	player1->set_high_break(revertState->p1HighBreak);
 	player2->set_high_break(revertState->p2HighBreak);
+	player1->set_frames_won(revertState->p1FramesWon);
+	player2->set_frames_won(revertState->p2FramesWon);
 	pointsOnTable = revertState->pointsOnTable;
 	reds = revertState->reds;
 	
