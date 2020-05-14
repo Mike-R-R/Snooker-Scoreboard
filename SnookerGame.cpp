@@ -354,7 +354,7 @@ Player* SnookerGame::player_not_at_table()
 
 /**
  * Private helper method to create a snapshot of the current game state
- *  after a change and add it to the snooker game state stack.
+ *  when a change is requested and add it to the snooker game state stack.
  */
 void SnookerGame::game_state_changed()
 {
