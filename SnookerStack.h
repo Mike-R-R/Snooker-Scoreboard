@@ -7,6 +7,10 @@
 struct GameState{
 	int p1Points;
 	int p2Points;
+	int p1CurrentBreak;
+	int p2CurrentBreak;
+	int p1HighBreak;
+	int p2HightBreak;
 	int pointsOnTable;
 	int reds;
 	int shootingPlayer;

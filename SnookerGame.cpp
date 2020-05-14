@@ -361,6 +361,10 @@ void SnookerGame::game_state_changed()
     GameState currentState;
     currentState.p1Points = player1->get_score();
     currentState.p2Points = player2->get_score();
+    currentState.p1CurrentBreak = player1->get_current_break();
+    currentState.p2CurrentBreak = player2->get_current_break();
+    currentState.p1HighBreak = player1->get_high_break();
+    currentState.p2HighBreak = player2->get_high_break();
     currentState.pointsOnTable = pointsOnTable;
     currentState.reds = reds;
     currentState.shootingPlayer = shooting_player();
@@ -379,26 +383,31 @@ void SnookerGame::revert_game_state()
 {
     GameState* revertState = stateStack.previous_game_state();
     
-    player1->set_score(revertState->p1Points);
-    player2->set_score(revertState->p2Points);
-    pointsOnTable = revertState->pointsOnTable;
-    reds = revertState->reds;
-    
-    if(revertState->shootingPlayer == 1){
-	player1->set_at_table(true);
-	player1->set_on_red(revertState->onRed);
-	player2->set_at_table(false);
-	player2->set_on_red(!revertState->onRed);
-    } else {
-	player2->set_at_table(true);
-	player2->set_on_red(revertState->onRed);
-	player1->set_at_table(false);
-	player1->set_on_red(!revertState->onRed);
+    if(revertState != 0){
+	player1->set_score(revertState->p1Points);
+	player2->set_score(revertState->p2Points);
+	player1->set_current_break(revertState->p1CurrentBreak);
+	player2->set_current_break(revertState->p2CurrentBreak);
+	player1->set_high_break(revertState->p1HighBreak);
+	player2->set_high_break(revertState->p2HighBreak);
+	pointsOnTable = revertState->pointsOnTable;
+	reds = revertState->reds;
+	
+	if(revertState->shootingPlayer == 1){
+	    player1->set_at_table(true);
+	    player1->set_on_red(revertState->onRed);
+	    player2->set_at_table(false);
+	    player2->set_on_red(!revertState->onRed);
+	} else {
+	    player2->set_at_table(true);
+	    player2->set_on_red(revertState->onRed);
+	    player1->set_at_table(false);
+	    player1->set_on_red(!revertState->onRed);
+	}
+	
+	foul = revertState->foul;
+	freeBall = revertState->freeBall;
     }
-    
-    foul = revertState->foul;
-    freeBall = revertState->freeBall;
-
     
 }
 

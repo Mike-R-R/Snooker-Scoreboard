@@ -67,6 +67,15 @@ int Player::get_frames_won()
 
 
 /**
+ * Sets frames won by Player
+ */
+void Player::set_frames_won(int framesWon)
+{
+    this->framesWon = framesWon;
+}
+
+
+/**
  * Returns the players current break
  */
 int Player::get_current_break()
@@ -74,12 +83,31 @@ int Player::get_current_break()
     return currentBreak;
 }
 
+
+/**
+ * Sets the players current break
+ */
+void Player::set_current_break(int currentBreak)
+{
+    this->currentBreak = currentBreak;
+}
+
+
 /*
  * Returns Players highest break
  */
 int Player::get_high_break()
 {
     return highBreak;
+}
+
+
+/*
+ * Sets Players highest break
+ */
+void Player::set_high_break(int highBreak)
+{
+    this->highBreak = highBreak;
 }
 
 
