@@ -5,7 +5,8 @@
 
 ### What is this repository for? ###
 
-* This repository is for a snooker scoreboard on a 32x32 RGB LED Matrix controlled by a Raspberry Pi.
+* This repository is for a snooker scoreboard on a 32x32 RGB LED Matrix controlled by a Raspberry Pi. 
+[See the scoreboard in action.](https://youtu.be/ODiiireMW4Y)
 * Version 2.0
 
 ### What is Required? ###
@@ -69,7 +70,7 @@ press `ctrl+o` to save the file and `ctrl+x` to exit back to the command line.
    * `-` - Lost red
    * `+` - Free ball
    * `*` - Ends the current frame
-   * '/ or Backspace' - Reverts the game state to undo any action
+   * `/ or Backspace` - Reverts the game state to undo any action
    
 ### Upcoming features by order of planned implementation ###
 
