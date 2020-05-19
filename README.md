@@ -24,7 +24,7 @@
 
 1. To begin you will need to install Raspbian on you Raspberry Pi. I would highly recommend using Raspbian Lite if 
    you plan to do more with the matrix and are familiar enough with linux that you can work comfortably from the 
-   command line. If that does not describe you a Raspbian installation with GUI will work since the scoreboard is not 
+   terminal. If that does not describe you a Raspbian installation with GUI will work since the scoreboard is not 
    particularly taxing on the Pi. Once you have Raspbian up and running on the Pi you want to install g++, make, git,
    and ncurses. To do this open a terminal and run the commands `sudo apt-get install g++`, `sudo apt-get install make`,
    `sudo apt-get install git`, and finally `sudo apt-get install libncurses5-dev libncursesw5-dev`.
@@ -48,12 +48,12 @@
 ### How do I automatically run the scoreboard program when the Pi is powered on? ###
 
 1. Set up the Raspberry Pi to boot to desktop. Run the command `sudo raspi-config` and under boot options choose either boot to desktop or boot 
-to command line.
+to terminal.
 
 2. Open the .bashrc using the command `sudo nano /home/pi/.bashrc`. At the bottom of this file add the command 
 `(cd ~/Documents/Snooker-Scoreboard && make)`. Alternatively, you can use the -C option with make such as `make run -C ~/Documents/Snooker-Scoreboard`
 if that is your preference. If you have your Snooker-Scoreboard repo in a different path you will need to modify the command with your path. In nano 
-press `ctrl+o` to save the file and `ctrl+x` to exit back to the command line.
+press `ctrl+o` to save the file and `ctrl+x` to exit back to the terminal.
 
 3. Run the command `sudo reboot` to reboot the Pi and verify that the scoreboard program runs upon boot.
    
