@@ -51,7 +51,7 @@
 to terminal.
 
 2. Open the .bashrc using the command `sudo nano /home/pi/.bashrc`. At the bottom of this file add the command 
-`(cd ~/Documents/Snooker-Scoreboard && make)`. Alternatively, you can use the -C option with make such as `make run -C ~/Documents/Snooker-Scoreboard`
+`(cd ~/Documents/Snooker-Scoreboard && make run)`. Alternatively, you can use the -C option with make such as `make run -C ~/Documents/Snooker-Scoreboard`
 if that is your preference. If you have your Snooker-Scoreboard repo in a different path you will need to modify the command with your path. In nano 
 press `ctrl+o` to save the file and `ctrl+x` to exit back to the terminal.
 
